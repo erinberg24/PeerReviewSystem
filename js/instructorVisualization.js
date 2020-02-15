@@ -8,7 +8,7 @@ function updateBarChart(){
     width: 400,
     height: 300,
     description: "A simple bar chart with embedded data.",
-    data: {url: "data/assessmentResults.csv"},
+    data: {url: "./data/assessmentResults.csv"},
     mark: {
       "type": "line",
       "point": true
