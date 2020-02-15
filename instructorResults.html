@@ -17,11 +17,24 @@
 	<div class="container">
 		
 		<h1>Peer Results Summary</h1>
-		<h4>An aggregated representation of your evaluated performance by week.</h4>
+        <h4>An aggregated representation of evaluated performance by week.</h4>
+        
+        <select id = "name-group-type" class="select-control">
+            <option value="">All Students</option>
+            <option selected disabled value="">Groups</option>
+            <option value="Group1">Group 1</option>
+            <option value="Group2">Group 2</option>
+            <option value="Group3">Group 3</option>
+            <option selected disabled value="">Names</option>
+            <option value="Brennan">Brennan Nugent</option>
+            <option value="Erin">Erin Berg</option>
+            <option value="Dylan">Dylan Nadeau</option>
+            <option value="Cecilia">Cecilia Wu</option>
+        </select>
 		
 		<select id="ranking-type" class="select-control">
-			<option value="Average Evaluation">Your peer assessment results.</option>
-			<option value="Academic">Your group's grades.</option>
+			<option value="Average Evaluation">Peer assessment results</option>
+			<option value="Academic">Grades</option>
 		</select>
 		
 		<div id="chart-area"></div>

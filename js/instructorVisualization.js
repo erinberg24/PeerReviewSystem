@@ -1,14 +1,18 @@
 
-document.querySelector(".select-control").addEventListener("change", updateBarChart);
+
+document.querySelector("#ranking-type").addEventListener("change", updateBarChart);
+document.querySelector("#name-group-type").addEventListener("change", updateBarChart);
 
 function updateBarChart(){
-  let column = document.querySelector(".select-control").value;
+  let column = document.querySelector("#ranking-type").value;
+  let name = document.querySelector("#name-group-type").value;
+  console.log(column);
   let spec = {
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
     width: 400,
     height: 300,
     description: "A simple bar chart with embedded data.",
-    data: {url: "./data/assessmentResults.csv"},
+    data: {url: "./data/"+name+"assessmentResults.csv"},
     mark: {
       "type": "line",
       "point": true
