@@ -15,7 +15,7 @@
   }
 
 .fa-plus {
-    color: green;
+    color: purple;
     font-size: 30px;
     text-align: center;
 
@@ -25,4 +25,8 @@
     font-size: 45px;
     background-color: inherit;
 
+}
+
+.answerText {
+    color: purple;
 }
