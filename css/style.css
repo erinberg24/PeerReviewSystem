@@ -2,3 +2,27 @@
 .container{
     width: 600px;
 }
+
+.btn {
+    border: none;
+    background-color: inherit;
+    /* cursor: pointer;
+    display: inline-block; */
+}
+
+.btn:hover {
+    background-color: inherit;
+  }
+
+.fa-plus {
+    color: green;
+    font-size: 30px;
+    text-align: center;
+
+}
+
+.fa-plus:hover {
+    font-size: 45px;
+    background-color: inherit;
+
+}
