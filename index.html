@@ -16,9 +16,9 @@
     <div>
         <h3>Please Login.</h3> 
         <h5>Are you a student or instructor?</h5>
-        <select id="ranking-type" class="select-control">
-			<option value="Average Evaluation">Student</option>
-			<option value="Academic">Instructor</option>
+        <select id="studentTeacherSelect" class="select-control">
+			<option value="student">Student</option>
+			<option value="teacher">Instructor</option>
         </select>
         <br><br>
     </div>
@@ -33,8 +33,10 @@
         <input type="text" id="pass" name="pass">
     </div>
 
-    <button><a href="createPeerAssessment.html"><font color="white">Submit</font></a></button> 
+    <button><a id="switchingButton" href="studentLP.html"><font color="white">Submit</font></a></button> 
     <button>Cancel</button>
+
+    <script type="module" src="js/indexJs.js"></script>
   
 </body>
 

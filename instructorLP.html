@@ -21,9 +21,9 @@
 
     <div>
         <h3>Choose a course.</h3> 
-        <select id="ranking-type" class="select-control">
-			<option value="Average Evaluation">CSCI1101</option>
-			<option value="Academic">CSCI3356</option>
+        <select id="courseSelect" class="select-control">
+			<option value="class">CSCI1101</option>
+			<option value="class">CSCI3356</option>
         </select>
         <br><br>
     </div>
@@ -31,16 +31,18 @@
     <div>
         <h3>Choose to create a new peer assessment or choose a previous peer assessment to view its results.</h3> 
         <div>
-            <select id="ranking-type" class="select-control">
-                <option value="Academic"><a href="createPeerAssessment.html">Create a New Peer Assessment</a></option>
-                <option value="Average Evaluation">Iteration 1</option>
-                <option value="Academic">Iteration2</option>
+            <select id="assessmentViewer" class="select-control">
+                <option value="create">Create a New Peer Assessment</option>
+                <option value="view">Iteration 1</option>
+                <option value="view">Iteration2</option>
             </select>
             <br><br>
         </div>
     <div>
 
-    <button><a href="createPeerAssessment.html"><font color="white">Submit</font></a></button> 
+    <button><a id = "pageSwitcher" href="createPeerAssessment.html"><font color="white">Submit</font></a></button> 
+
+    <script type="module" src="js/instructorLP.js"></script>
   
 </body>
 
