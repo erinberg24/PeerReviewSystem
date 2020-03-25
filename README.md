@@ -11,5 +11,3 @@ They include:
 4) Searching for peer assessments and courses
 
 The current implementation is not the final product. Features and functions are continually being added to enhance the quality of the system.
-
-commit trial 2
