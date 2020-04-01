@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'loginPage_test'
 ]
 
+AUTH_USER_MODEL = 'accounts.MyUser'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,6 +52,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+AUTHENTICATION_BACKENDS = [
+        'django.contrib.auth.backends.ModelBackend'
 ]
 
 ROOT_URLCONF = 'loginPage_test.urls'

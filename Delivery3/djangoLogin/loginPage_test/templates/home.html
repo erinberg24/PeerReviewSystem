@@ -5,13 +5,122 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+{% if user.is_teacher %}
+  <!-- Hi {{ user.username }}! -->
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome, Instructor.</title>
+  </head>
+  
+  <body>
+      <div class="flex-container">
+          <!-- <nav>
+              <a href="#">Go Back</a>
+          </nav> -->
+          <br>
+      </div>
+  
+      <div>
+          <h1>Welcome Instructor</h1><br>
+      </div>
+  
+      <div>
+          <h3>Choose a course.</h3> 
+          <select id="courseSelect" class="select-control">
+        <option value="class">CSCI1101</option>
+        <option value="class">CSCI3356</option>
+          </select>
+          <br><br>
+      </div>
+  
+      <div>
+          <h3>Choose to create a new peer assessment or choose a previous peer assessment to view its results.</h3> 
+          <div>
+              <select id="assessmentViewer" class="select-control">
+                  <option value="create">Create a New Peer Assessment</option>
+                  <option value="view">Iteration 1</option>
+                  <option value="view">Iteration2</option>
+              </select>
+              <br><br>
+          </div>
+      <div>
+  
+      <button><a id = "pageSwitcher" href="createPeerAssessment.html"><font color="white">Submit</font></a></button> 
+  
+      <!-- <script type="module" src="js/instructorLP.js"></script> -->
+    
+  </body>
+  
+
+
+
+
   <p><a href="{% url 'logout' %}">logout</a></p>
   <p><a href="{% url 'password_reset' %}">reset password</a></p>
+
+
 {% else %}
+
+
+
+
+
+<head>
+  <meta charset="utf-8">
+  <title>Welcome, Student.</title>
+</head>
+
+<body>
+    <div class="flex-container">
+        <!-- <nav>
+            <a href="index.html">Go Back </a>
+        </nav> -->
+        <br>
+    </div>
+
+    <div>
+        <h1>Welcome Student</h1><br>
+    </div>
+
+    <div>
+        <h3>Take a Peer Assessment</h3> 
+        <select id="ranking-type" class="select-control">
+            <option value="Average Evaluation"></option>
+			<option value="Average Evaluation">CSCI2254: Iteration 1</option>
+			<option value="Academic">CSCI3356: Iteration 2</option>
+        </select>
+        <button><a href="peerAssessment.html">Submit</a></button> 
+        <br><br>
+    </div>
+
+    <div>
+        <h3>View Your Results</h3> 
+        <div>
+            <select id="ranking-type" class="select-control">
+                <option value="Average Evaluation"></option>
+                <option value="Academic"><a href="createPeerAssessment.html">CSCI3356: Iteration 1</a></option>
+            </select>
+            <button><a href="studentResults.html">Submit</a></button>
+            <br><br>
+        </div>
+    <div>
+  
+</body>
+
+<p><a href="{% url 'logout' %}">logout</a></p>
+<p><a href="{% url 'password_reset' %}">reset password</a></p>
+
+{% endif %}
+
+ <!--Log In Redirect  -->
+{% else %}
+
+
+
+
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>
-  <p>Test text</p>
-  <a href="{% url 'signup' %}">signup</a>
+
+  <!-- <a href="{% url 'signup' %}">signup</a> -->
 {% endif %}
 {% endblock %}
