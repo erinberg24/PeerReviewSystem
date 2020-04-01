@@ -17,10 +17,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 #from django.urls import include
 from django.views.generic.base import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('accounts/', include('accounts.urls')),
     url('accounts/', include('django.contrib.auth.urls')), # new
     url('', TemplateView.as_view(template_name='home.html'), name='home')
-]
+]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

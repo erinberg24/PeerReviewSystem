@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  {% block title %}Peer Assessment System{% endblock %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/milligram.min.css' %}">
+</head>
+
+<body>
+  <div>
+      {% block content %}
+      <h1>Welcome to the Peer Assessment System</h1><br>
+  </div> 
+  <h2>Login</h2>
+  <div>
+    <h5>Are you a student, instructor, TA, or administrator?</h5>
+      <select id="studentTeacherSelect" class="select-control">
+        <option value="student">Student</option>
+        <option value="teacher">Instructor</option>
+      </select>
+    <br><br>
+  </div>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+{% endblock %}
+  
+</body>
+
+</html>
