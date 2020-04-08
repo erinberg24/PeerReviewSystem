@@ -1,5 +1,6 @@
 <!-- templates/home.html-->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
@@ -10,8 +11,10 @@
   <head>
     <meta charset="utf-8">
     <title>Welcome, Instructor.</title>
+    <img src="{% static 'staticfiles/css/kylept2.jpg' %}" style="margin-left: 850px; width:02%; margin-top:-425px" alt="TEST">
+
   </head>
-  
+
   <body>
       <div class="flex-container">
           <!-- <nav>
@@ -19,22 +22,22 @@
           </nav> -->
           <br>
       </div>
-  
+
       <div>
           <h1>Welcome Instructor</h1><br>
       </div>
-  
+
       <div>
-          <h3>Choose a course.</h3> 
+          <h3>Choose a course.</h3>
           <select id="courseSelect" class="select-control">
         <option value="class">CSCI1101</option>
         <option value="class">CSCI3356</option>
           </select>
           <br><br>
       </div>
-  
+
       <div>
-          <h3>Choose to create a new peer assessment or choose a previous peer assessment to view its results.</h3> 
+          <h3>Choose to create a new peer assessment or choose a previous peer assessment to view its results.</h3>
           <div>
               <select id="assessmentViewer" class="select-control">
                   <option value="create">Create a New Peer Assessment</option>
@@ -44,13 +47,13 @@
               <br><br>
           </div>
       <div>
-  
-      <button><a id = "pageSwitcher" href="createPeerAssessment.html"><font color="white">Submit</font></a></button> 
-  
+
+      <button><a id = "pageSwitcher" href="createPeerAssessment.html"><font color="white">Submit</font></a></button>
+
       <!-- <script type="module" src="js/instructorLP.js"></script> -->
-    
+
   </body>
-  
+
 
 
 
@@ -83,18 +86,18 @@
     </div>
 
     <div>
-        <h3>Take a Peer Assessment</h3> 
+        <h3>Take a Peer Assessment</h3>
         <select id="ranking-type" class="select-control">
             <option value="Average Evaluation"></option>
 			<option value="Average Evaluation">CSCI2254: Iteration 1</option>
 			<option value="Academic">CSCI3356: Iteration 2</option>
         </select>
-        <button><a href="peerAssessment.html">Submit</a></button> 
+        <button><a href="peerAssessment.html">Submit</a></button>
         <br><br>
     </div>
 
     <div>
-        <h3>View Your Results</h3> 
+        <h3>View Your Results</h3>
         <div>
             <select id="ranking-type" class="select-control">
                 <option value="Average Evaluation"></option>
@@ -104,7 +107,7 @@
             <br><br>
         </div>
     <div>
-  
+
 </body>
 
 <p><a href="{% url 'logout' %}">logout</a></p>

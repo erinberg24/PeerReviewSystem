@@ -129,6 +129,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     STATIC_DIR,
+    "Delivery3/djangoLogin/static/staticfiles"
 ]
 
 STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')

@@ -1,29 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
+{% block title %}Peer Assessment System{% endblock %}
+
+{% block content %}
+
+<!--<!DOCTYPE html>
 <html lang='en'>
-<head>
-  <meta charset="utf-8">
-  {% block title %}Peer Assessment System{% endblock %}
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'css/milligram.min.css' %}">
-</head>
+<head> -->
 
 <body>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <div class="container">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/fontawesome.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.min.css' %}">
+      
+  
+  <h1 style="margin-left: -80px">Welcome to the Peer Assessment System</h1><br>
+  
+  <h2 style="margin-left: -80px;">Login</h2>
+
   <div>
-      {% block content %}
-      <h1>Welcome to the Peer Assessment System</h1><br>
-  </div> 
-  <h2>Login</h2>
-  <div>
-    <!-- <h5>Are you a student, instructor, TA, or administrator?</h5> -->
-      <!-- <select id="studentTeacherSelect" class="select-control">
+    <h5>Are you a student, instructor, TA, or administrator?</h5>
+      <select id="studentTeacherSelect" class="select-control">
         <option value="student">Student</option>
         <option value="teacher">Instructor</option>
-      </select> -->
+      </select>
     <br><br>
   </div>
+</div>
 
 <form method="post">
   {% csrf_token %}
@@ -31,7 +41,7 @@
   <button type="submit">Login</button>
 </form>
 {% endblock %}
-  
+
 </body>
 
-</html>
+</html> 
