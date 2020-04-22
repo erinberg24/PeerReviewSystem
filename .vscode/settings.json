@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.port": 5502
+    "liveServer.settings.port": 5502,
+    "python.pythonPath": "/Users/erinberg/.local/share/virtualenvs/Swe-etTeam-2D8e9bmx/bin/python"
 }

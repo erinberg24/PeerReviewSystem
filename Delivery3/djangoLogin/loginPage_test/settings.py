@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'loginPage_test'
+    'loginPage_test',
+    'peerAssessments'
 ]
 
 AUTH_USER_MODEL = 'accounts.MyUser'
