@@ -22,8 +22,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url('allAssessments/', TemplateView.as_view(template_name="allAssessments.html"), name='allAssessments'),
+    url('teamView/', TemplateView.as_view(template_name="teamView.html"), name='teamView'),
+    url('createAssessment/', TemplateView.as_view(template_name="createAssessment.html"), name='createAssessment'),
     url('accounts/', include('accounts.urls')),
     url('accounts/', include('django.contrib.auth.urls')), # new
     url('', TemplateView.as_view(template_name='home.html'), name='home')
+
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

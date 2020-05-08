@@ -1,0 +1,59 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<head>
+  <meta charset="utf-8">
+      <title>Create Peer Assessment</title>
+    <link rel="stylesheet" href="css/milligram.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+</head>
+
+<body>
+    <div class="flex-container">
+        <nav>
+            <a href="{% url 'allAssessments' %}">Go Back </a>
+        </nav>
+        <br>
+    </div>
+
+  <h1>Create a Peer Assessment</h1>
+      <p>Peer Assessment Name</p>
+      <input type="text" id="name" name="name">
+      <p>Start Date</p>
+      <input type="date" id="start" name="start"
+       value=""
+       min="2020-01-01" max="2030-12-31">
+      <p>End Date</p>
+      <input type="date" id="start" name="start"
+      value=""
+      min="2020-01-01" max="2030-12-31">
+      <table style="table-layout: fixed; width: 500px">
+        <colgroup>
+        <col style="width: 97px">
+        <col style="width: 135px">
+        </colgroup>
+          <tr>
+            <th>Question Number</th>
+            <th>Question</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>He/She adequately fulfills the assigned task. </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>He/She assumes the project as a team effort, providing support in project tasks. </td>
+          </tr>
+          <tr>
+            <td><button class = "btn"><i class="fas fa-plus"></i></button></td>
+            <td>Add new question</td>
+          </tr>
+        </table>
+</body>
+{% endblock %}
