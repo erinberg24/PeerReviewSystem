@@ -1,4 +1,7 @@
-class PeerAssessmentForm(forms.ModelForm):
+from django.forms import ModelForm
+from django import forms
+
+class PeerAssessmentForm(forms.Form):
     name = forms.CharField()
     cid = forms.IntegerField()
     startdate = forms.DateField()

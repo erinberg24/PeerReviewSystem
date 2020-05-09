@@ -6,6 +6,7 @@ from .models import Instructor
 from .models import Course
 from .models import PeerAssessment
 from .models import Question
+from .forms import PeerAssessmentForm
 
 # Create your views here.
 
@@ -17,7 +18,6 @@ def createAssessment(request):
 
         form = PeerAssessmentForm(request.POST)
         if form.is_valid():
-            print("VALID!!!!")
             startdate = request.POST.get('startdate', '') 
             enddate = request.POST.get('enddate', '')
             title = request.POST.get('title', '')
@@ -43,8 +43,10 @@ def enterQuestions(request):
     #data= request.POST.get('name')
     #number = request.session['number']
     #    numString += '3'
+    obj = PeerAssessment.objects.get(pid=1)
     context = {
-        'looptimes': '123456789'
+        'object': obj,
+        'loopc': '123456789'
     }
     #context= {'data':data}
     return render(request,"enterQuestions.html", context)

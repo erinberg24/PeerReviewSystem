@@ -32,12 +32,12 @@
             <th>Question Number</th>
             <th>Question</th>
         </tr>
-        {% for i in looptimes %}
+        {% for quest in loopc %}
         <tr>
-            <td>{{ i }}</td>
+            <td>{{ quest }}</td>
             <td><input type="text" id="question" name="question" value=""></td>
         </tr>
-        {% endfor %}
+        {% endfor %} 
     </table>
     <input type="submit" value="Submit" />
 </body>
