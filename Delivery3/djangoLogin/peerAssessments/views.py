@@ -17,26 +17,37 @@ def createAssessment(request):
 
         form = PeerAssessmentForm(request.POST)
         if form.is_valid():
+            print("VALID!!!!")
             startdate = request.POST.get('startdate', '') 
             enddate = request.POST.get('enddate', '')
             title = request.POST.get('title', '')
             cid = request.POST.get('cid', '')
             number = request.POST.get('number', '')
             number = int(number)
-            #for i in range(number):
-                
-
-
             #for each question, make a question model and then add them all to questions.
-
-            pa_obj = PeerAssessment(startdate = startdate, enddate = enddate, questions = questions, iid=iid, cid=cid)
+            #request.session['number'] = number
+            pa_obj = PeerAssessment(startdate = startdate, enddate = enddate, cid=cid)
             pa.obj.save()
 
-            return HttpResponseRedirect(('/enterQuestions/')) #Redirect after POST
+            return HttpResponseRedirect('enterQuestions') #Redirect after POST
     else:
         form = PeerAssessmentForm()
 
     return render(request,"templates/createAssessment.html", {'form': form,})
+
+def enterQuestions(request):
+    #if request.method == 'POST':
+        #form = EnterQuestionsForm(request.POST)
+        #if form.is_valid():
+         #   for i
+    #data= request.POST.get('name')
+    #number = request.session['number']
+    #    numString += '3'
+    context = {
+        'looptimes': '123456789'
+    }
+    #context= {'data':data}
+    return render(request,"enterQuestions.html", context)
 
 def instructorHome(request):
     obj = Instructor.objects.get(iid=1)

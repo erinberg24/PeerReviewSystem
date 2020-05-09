@@ -18,7 +18,7 @@
 <body>
     <div class="flex-container">
         <nav>
-            <a href="{% url 'home' %}">Go Back </a>
+            <a href="{% url 'createassessment' %}">Go Back </a>
         </nav>
         <br>
     </div>
@@ -32,12 +32,12 @@
             <th>Question Number</th>
             <th>Question</th>
         </tr>
-         <!-- FOR i in range(QUESTION NUMBER:)-->
+        {% for i in looptimes %}
         <tr>
             <td>{{ i }}</td>
             <td><input type="text" id="question" name="question" value=""></td>
         </tr>
-        <!-- END FOR-->
+        {% endfor %}
     </table>
     <input type="submit" value="Submit" />
 </body>

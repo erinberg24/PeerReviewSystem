@@ -48,6 +48,10 @@ class Question(models.Model):
     questionText = models.CharField(max_length=500)
     pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
 
+    def __str__(self):
+        title = self.questionText
+        return title
+
 class PeerAssessment(models.Model):
     pid = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
