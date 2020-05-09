@@ -1,5 +1,5 @@
 class PeerAssessmentForm(forms.ModelForm):
-    title = forms.CharField(required=True)
+    name = forms.CharField(required=True)
     cid = forms.FloatField()
     startdate = forms.DateField(required=True)
     enddate = forms.DateField(required=True)

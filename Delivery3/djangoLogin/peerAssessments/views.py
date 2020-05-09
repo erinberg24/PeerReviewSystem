@@ -22,14 +22,17 @@ def createAssessment(request):
             title = request.POST.get('title', '')
             cid = request.POST.get('cid', '')
             number = request.POST.get('number', '')
-            
+            number = int(number)
+            #for i in range(number):
+                
+
 
             #for each question, make a question model and then add them all to questions.
 
             pa_obj = PeerAssessment(startdate = startdate, enddate = enddate, questions = questions, iid=iid, cid=cid)
             pa.obj.save()
 
-            #return HttpResponseRedirect(reverse('jobs:cost')) #Redirect after POST
+            return HttpResponseRedirect(('/enterQuestions/')) #Redirect after POST
     else:
         form = PeerAssessmentForm()
 
