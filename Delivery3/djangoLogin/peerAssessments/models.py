@@ -9,7 +9,7 @@ SEMESTER_CHOICES =  (("Fall", "F"), ("Spring", "S"))
 class Course(models.Model):
     cid = models.IntegerField(primary_key=True)
     courseName = models.CharField(max_length = 30)
-    code = models.IntegerField()
+    code = models.CharField(max_length=20)
     section = models.IntegerField()
     year = models.IntegerField()
     semester = models.CharField(max_length= 8, choices=SEMESTER_CHOICES, default="FALL")
@@ -48,7 +48,8 @@ class PeerAssessment(models.Model):
     cid = models.ForeignKey('Course', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.pid
+        title = str(self.pid)
+        return title
 
 #in admin.py
 #from .models import Course
