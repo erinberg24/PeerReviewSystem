@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from peerAssessments import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -28,7 +29,11 @@ urlpatterns = [
     url('studentResults/', TemplateView.as_view(template_name="studentResults.html"), name='studentResults'),
     url('accounts/', include('accounts.urls')),
     url('accounts/', include('django.contrib.auth.urls')), # new
-    url('', TemplateView.as_view(template_name='home.html'), name='home')
+    #url('', TemplateView.as_view(template_name='home.html'), name='home')
+    #path('home/', instructorHome)
+    url('', views.instructorHome, name='home')
+    #url(r'contact/$', views.contact, name='contact')
+
 
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

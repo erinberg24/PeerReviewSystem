@@ -7,18 +7,19 @@ SEMESTER_CHOICES =  (("Fall", "F"), ("Spring", "S"))
 
 # Create your models here.
 class Course(models.Model):
-    cid = models.IntegerField(primary_key=True)
+    cid = models.AutoField(primary_key=True)
     courseName = models.CharField(max_length = 30)
     code = models.CharField(max_length=20)
     section = models.IntegerField()
     year = models.IntegerField()
     semester = models.CharField(max_length= 8, choices=SEMESTER_CHOICES, default="FALL")
+    iid = models.ForeignKey('Instructor', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.courseName
 
 class Student(models.Model):
-    sid = models.IntegerField(primary_key=True)
+    sid = models.AutoField(primary_key=True)
     fname = models.CharField(max_length = 15)
     lname = models.CharField(max_length = 20)
     email = models.CharField(max_length = 20, unique=True)
@@ -29,18 +30,19 @@ class Student(models.Model):
         return self.fname + " " + self.lname
 
 class Instructor(models.Model):
-    iid = models.IntegerField(primary_key=True)
+    iid = models.AutoField(primary_key=True)
     fname = models.CharField(max_length = 15)
     lname = models.CharField(max_length = 20)
     email = models.CharField(max_length = 20, unique=True)
     eagleid = models.IntegerField(unique=True)
     password = models.CharField(max_length = 20)
+    mycourses = models.ManyToManyField(Course)
 
     def __str__(self):
         return self.fname + " " + self.lname
 
 class PeerAssessment(models.Model):
-    pid = models.IntegerField(primary_key=True)
+    pid = models.AutoField(primary_key=True)
     questions = models.TextField()
     startDate = models.DateTimeField()
     endDate = models.DateTimeField()

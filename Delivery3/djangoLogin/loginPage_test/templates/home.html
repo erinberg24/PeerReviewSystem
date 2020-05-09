@@ -11,7 +11,7 @@
   <!-- Hi {{ user.username }}! -->
   <head>
     <meta charset="utf-8">
-    <title>Welcome, Instructor.</title>
+    <title>Welcome, Professor {{ object.lname }} </title>
     <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/fontawesome.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.min.css' %}">
@@ -26,14 +26,15 @@
       </div>
   
       <div>
-          <h1>Welcome Instructor</h1><br>
+          <h1>Welcome, Professor {{ object.lname }} </h1><br>
       </div>
   
       <div>
           <h3>Choose a course.</h3> 
           <select id="courseSelect" class="select-control">
-              <option value="class">CSCI1101</option>
-              <option value="class">CSCI3356</option>
+            {% for course in object.mycourses.all %}
+            <option value="class">{{ course }}</option>
+            {% endfor %}
           </select>
           <br><br>
       </div>
