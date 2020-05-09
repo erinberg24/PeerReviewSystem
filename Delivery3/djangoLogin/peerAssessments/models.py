@@ -44,16 +44,17 @@ class Instructor(models.Model):
 
 class Question(models.Model):
     qid = models.AutoField(primary_key=True)
-    qType = models.CharField(max_length= 20, choices=SEMESTER_CHOICES, default="Multiple Choice")
+    qType = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice")
     questionText = models.CharField(max_length=500)
     pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
 
 class PeerAssessment(models.Model):
     pid = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
-    questions = models.ManyToManyField(Question)
     startDate = models.DateTimeField()
-    endDate = models.DateTimeField()
+    endDate = models.DateTimeField() 
+    number = models.IntegerField()
+    questions = models.ManyToManyField(Question)
     iid = models.ForeignKey('Instructor', on_delete=models.CASCADE)
     cid = models.ForeignKey('Course', on_delete=models.CASCADE)
 

@@ -21,6 +21,8 @@ def createAssessment(request):
             enddate = request.POST.get('enddate', '')
             title = request.POST.get('title', '')
             cid = request.POST.get('cid', '')
+            number = request.POST.get('number', '')
+            
 
             #for each question, make a question model and then add them all to questions.
 
