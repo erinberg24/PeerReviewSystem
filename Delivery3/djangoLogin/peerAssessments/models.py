@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 SEMESTER_CHOICES =  (("Fall", "F"), ("Spring", "S"))
+QUESTION_TYPES = (("Multiple Choice", "MC"), ("TEXT", "T"))
 
 # Create your models here.
 class Course(models.Model):
@@ -41,9 +42,16 @@ class Instructor(models.Model):
     def __str__(self):
         return self.fname + " " + self.lname
 
+class Question(models.Model):
+    qid = models.AutoField(primary_key=True)
+    qType = models.CharField(max_length= 20, choices=SEMESTER_CHOICES, default="Multiple Choice")
+    questionText = models.CharField(max_length=500)
+    pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
+
 class PeerAssessment(models.Model):
     pid = models.AutoField(primary_key=True)
-    questions = models.TextField()
+    name = models.CharField(max_length=100)
+    questions = models.ManyToManyField(Question)
     startDate = models.DateTimeField()
     endDate = models.DateTimeField()
     iid = models.ForeignKey('Instructor', on_delete=models.CASCADE)
@@ -52,6 +60,7 @@ class PeerAssessment(models.Model):
     def __str__(self):
         title = str(self.pid)
         return title
+
 
 #in admin.py
 #from .models import Course

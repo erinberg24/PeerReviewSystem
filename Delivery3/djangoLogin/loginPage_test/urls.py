@@ -31,7 +31,8 @@ urlpatterns = [
     url('accounts/', include('django.contrib.auth.urls')), # new
     #url('', TemplateView.as_view(template_name='home.html'), name='home')
     #path('home/', instructorHome)
-    url('', views.instructorHome, name='home')
+    url('', views.instructorHome, name='home'),
+    url(r'^createassessment/', views.createAssessment, name="createassessment")
     #url(r'contact/$', views.contact, name='contact')
 
 
