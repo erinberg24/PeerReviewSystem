@@ -1,0 +1,74 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<head>
+  <meta charset="utf-8">
+  <title>Peer Assessment Results</title>
+
+	<!-- Load CSS files -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+</head>
+
+<body>
+  <div class="flex-container">
+    <nav>
+        <a href="{% url 'home' %}">Go Back </a>
+    </nav>
+    <br>
+  </div>
+
+    <h1>Peer Assessment Results</h1>
+    <h3>Here are your results.</h3> 
+
+    <div>
+
+      <p>1. Did he/she adequately fulfill the assigned tasks?</p>
+      <p class="answerText">7.8</p>
+
+      <p>2. Did he/she assume the project as a team effort, providing support in project tasks?</p>
+      <p class="answerText">8.9</p>
+      <p>3. Did he/she demonstrate initiative to achieve project success?</p>
+      <p class="answerText">9.8</p>
+      <p>4. Did he/she fulfill his/her assignments properly, working transparently and in coordination with the rest of the team?</p>
+      <p class="answerText">7.4</p>
+      <p>5. Did he/she maintain good communication with the client, generating value to project execution?</p>
+      <p class="answerText">10.0</p>
+      <p>6. Was he/she able to seek help when there were problems?</p>
+      <p class="answerText">8.2</p>
+      <p>7. Did he/she show a communicative attitude facilitating the teamwork?</p>
+      <p class="answerText">7.2</p>
+      <p>8. Is he/she able to admit mistakes and accept criticism?</p>
+      <p class="answerText">9.2</p>
+    </div>
+    
+    <table style="table-layout: fixed; width: 750px">
+      <tr>
+        <th>Your Strengths</th>
+        <th>Your Weaknesses</th>
+      </tr>
+      <tr>
+        <td class="answerText">Diligent worker and good communicator</td>
+        <td class="answerText">Bad listener</td>
+      </tr>
+      <tr>
+        <td class="answerText">Takes initiative</td>
+        <td class="answerText">Tends to be lazy</td>
+      </tr>
+      <tr>
+        <td class="answerText">Strong knowledge of the concepts</td>
+        <td class="answerText">Procrastination</td>
+      </tr>
+    </table>
+  
+</body>
+
+{% endblock %}

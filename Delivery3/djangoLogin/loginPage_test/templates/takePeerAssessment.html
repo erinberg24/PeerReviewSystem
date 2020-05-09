@@ -1,0 +1,129 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<head>
+  <meta charset="utf-8">
+  <title>Peer Assessment</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/fontawesome.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.min.css' %}">
+</head>
+
+<body>
+    <div class="flex-container">
+        <nav>
+            <a href="{% url 'home' %}">Go Back </a>
+        </nav>
+        <br>
+    </div>
+
+    <div>
+        <h1>Peer Assessment</h1>
+        <h3>Please fill out the following peer assessment your team member</h3> 
+    </div>
+
+    <div>
+        <div>
+            <p>1. Did he/she adequately fulfill the assigned tasks?</p>
+        </div>
+        <div>
+            <label><input type="radio" name="1" value="SA"> Strongly Agree</label>
+            <label><input type="radio" name="1" value="A"> Agree</label>
+            <label><input type="radio" name="1" value="N"> Neutral</label>
+            <label><input type="radio" name="1" value="D"> Disagree</label>
+            <label><input type="radio" name="1" value="SD"> Strongly Disagree</label><br>
+        </div>
+        <div>
+            <p>2. Did he/she assume the project as a team effort, providing support in project tasks?</p>
+        </div>
+        <div>
+            <label><input type="radio" name="2" value="SA"> Strongly Agree</label>
+            <label><input type="radio" name="2" value="A"> Agree</label>
+            <label><input type="radio" name="2" value="N"> Neutral</label>
+            <label><input type="radio" name="2" value="D"> Disagree</label>
+            <label><input type="radio" name="2" value="SD"> Strongly Disagree</label><br>
+        </div>
+        <div>
+            <p>3. Did he/she demonstrate initiative to achieve project success?</p>
+        </div>
+        <div>
+            <label><input type="radio" name="3" value="SA"> Strongly Agree</label>
+            <label><input type="radio" name="3" value="A"> Agree</label>
+            <label><input type="radio" name="3" value="N"> Neutral</label>
+            <label><input type="radio" name="3" value="D"> Disagree</label>
+            <label><input type="radio" name="3" value="SD"> Strongly Disagree</label><br>
+        </div>
+        <div>
+            <p>4. Did he/she fulfill his/her assignments properly, working transparently and in coordination with the rest of the team?</p>
+        </div>
+        <div>
+            <label><input type="radio" name="4" value="SA"> Strongly Agree</label>
+            <label><input type="radio" name="4" value="A"> Agree</label>
+            <label><input type="radio" name="4" value="N"> Neutral</label>
+            <label><input type="radio" name="4" value="D"> Disagree</label>
+            <label><input type="radio" name="4" value="SD"> Strongly Disagree</label><br>
+        </div>
+        <div>
+            <p>5. Did he/she maintain good communication with the client, generating value to project execution?</p>
+        </div>
+        <div>
+            <label><input type="radio" name="5" value="SA"> Strongly Agree</label>
+            <label><input type="radio" name="5" value="A"> Agree</label>
+            <label><input type="radio" name="5" value="N"> Neutral</label>
+            <label><input type="radio" name="5" value="D"> Disagree</label>
+            <label><input type="radio" name="5" value="SD"> Strongly Disagree</label><br>
+        </div>
+        <div>
+            <p>6. Was he/she able to seek help when there were problems?</p>
+        </div>
+        <div>
+            <label><input type="radio" name="6" value="SA"> Strongly Agree</label>
+            <label><input type="radio" name="6" value="A"> Agree</label>
+            <label><input type="radio" name="6" value="N"> Neutral</label>
+            <label><input type="radio" name="6" value="D"> Disagree</label>
+            <label><input type="radio" name="6" value="SD"> Strongly Disagree</label><br>
+        </div>
+        <div>
+            <p>7. Did he/she show a communicative attitude facilitating the teamwork?</p>
+        </div>
+        <div>
+            <label><input type="radio" name="7" value="SA"> Strongly Agree</label>
+            <label><input type="radio" name="7" value="A"> Agree</label>
+            <label><input type="radio" name="7" value="N"> Neutral</label>
+            <label><input type="radio" name="7" value="D"> Disagree</label>
+            <label><input type="radio" name="7" value="SD"> Strongly Disagree</label><br>
+        </div>
+        <div>
+            <p>8. Is he/she able to admit mistakes and accept criticism?</p>
+        </div>
+        <div>
+            <label><input type="radio" name="8" value="SA"> Strongly Agree</label>
+            <label><input type="radio" name="8" value="A"> Agree</label>
+            <label><input type="radio" name="8" value="N"> Neutral</label>
+            <label><input type="radio" name="8" value="D"> Disagree</label>
+            <label><input type="radio" name="8" value="SD"> Strongly Disagree</label><br>
+        <div>
+            <p>9. What are his/her strengths?</p>
+        </div>
+        <div>
+            <textarea rows="4", columns="100"></textarea>
+        </div>
+        <div>
+            <p>10. What are his/her weaknesses?</p>
+        </div>
+        <div>
+            <textarea rows="4", columns="100"></textarea>
+        </div>
+    </div>
+    
+
+    <button><a href="{% url 'home' %}"><font color="white">Submit</font></a></button> 
+    <button><a href="{% url 'home' %}"><font color="white">Cancel</font></a></button>
+  
+</body>
+
+{% endblock %}
