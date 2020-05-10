@@ -19,13 +19,13 @@ from django.contrib.auth.decorators import login_required
 def allAssessments(request): 
     return render(request,"templates/allAssessments.html", {})
 
-def createAssessment(request): 
+def createPeerAssessment(request): 
     if request.method == 'POST':
         form = PeerAssessmentForm(request.POST)
         if form.is_valid():
             form.save()
             number = form.number
-        return HttpResponseRedirect('/enterQuestions/')
+        return HttpResponseRedirect('/home/')
     else:
         form = PeerAssessmentForm()
 

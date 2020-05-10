@@ -34,7 +34,7 @@ urlpatterns = [
     url('home/', views.studentTeacherLinking, name='home'),
 
 
-    url('createPeerAssessment/', views.createAssessment, name="createassessment"),
+    url('createPeerAssessment/', views.createPeerAssessment, name="createPeerAssessment"),
     url('enterQuestions/', views.enterQuestions, name='enterQuestions'),
     url('takePeerAssessment/', views.takePeerAssessment, name="takePeerAssessment")
 

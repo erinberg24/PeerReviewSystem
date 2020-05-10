@@ -12,12 +12,31 @@ class PeerAssessmentForm(forms.ModelForm):
             'cid', 
             'startDate', 
             'endDate', 
-            'iid'
+            'iid',
+            'question1Type',
+            'question1Text',
+            'question2Type',
+            'question2Text',
+            'question3Type',
+            'question3Text',
+            'question4Type',
+            'question4Text',
+            'question5Type',
+            'question5Text',
+            'question6Type',
+            'question6Text',
+            'question7Type',
+            'question7Text',
+            'question8Type',
+            'question8Text',
+            'question9Type',
+            'question9Text',
+            'question10Type',
+            'question10Text'
         ]
         widgets = {
         'startDate': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
         'endDate': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
-        'number': forms.NumberInput(attrs={'style': 'width:10ch'})
     }
 
     # name = forms.CharField()
