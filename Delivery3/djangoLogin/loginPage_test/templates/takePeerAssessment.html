@@ -28,7 +28,10 @@
 
     <div>
         <div>
-
+            {% for question in object.questions.all %}
+                <p>{{question}}</p>
+                <textarea rows="4", columns="100"></textarea>
+            {% endfor %}
         </div>
         <div>
            
