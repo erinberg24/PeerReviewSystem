@@ -2,6 +2,9 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.conf import settings
+
+
 
 SEMESTER_CHOICES =  (("Fall", "F"), ("Spring", "S"))
 QUESTION_TYPES = (("Multiple Choice", "MC"), ("TEXT", "T"))
@@ -31,6 +34,7 @@ class Student(models.Model):
         return self.fname + " " + self.lname
 
 class Instructor(models.Model):
+    #user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,null=True, blank=True) 
     iid = models.AutoField(primary_key=True)
     fname = models.CharField(max_length = 15)
     lname = models.CharField(max_length = 20)
