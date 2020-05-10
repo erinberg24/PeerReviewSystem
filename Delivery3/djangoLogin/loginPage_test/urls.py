@@ -35,7 +35,6 @@ urlpatterns = [
 
 
     url('createPeerAssessment/', views.createPeerAssessment, name="createPeerAssessment"),
-    url('enterQuestions/', views.enterQuestions, name='enterQuestions'),
     url('takePeerAssessment/', views.takePeerAssessment, name="takePeerAssessment")
 
     #url(r'contact/$', views.contact, name='contact')

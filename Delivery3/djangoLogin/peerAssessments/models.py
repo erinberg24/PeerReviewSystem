@@ -46,22 +46,11 @@ class Instructor(models.Model):
     def __str__(self):
         return self.fname + " " + self.lname
 
-class Question(models.Model):
-    qid = models.AutoField(primary_key=True)
-    qType = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice")
-    questionText = models.CharField(max_length=500)
-    pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
-
-    def __str__(self):
-        title = self.questionText
-        return title
-
 class PeerAssessment(models.Model):
     pid = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     startDate = models.DateTimeField()
     endDate = models.DateTimeField() 
-    questions = models.ManyToManyField(Question)
     iid = models.ForeignKey('Instructor', on_delete=models.CASCADE)
     cid = models.ForeignKey('Course', on_delete=models.CASCADE)
     question1Text = models.CharField(max_length=500)

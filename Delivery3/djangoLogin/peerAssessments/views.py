@@ -7,10 +7,7 @@ from .models import Instructor
 from .models import Student
 from .models import Course
 from .models import PeerAssessment
-from .models import Question
 from .forms import PeerAssessmentForm
-from .forms import EnterQuestionsForm
-from django.core.urlresolvers import reverse
 
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -38,30 +35,30 @@ def createPeerAssessment(request):
 
     return render(request,"createPeerAssessment.html", {'form': form})
 
-def enterQuestions(request):
-    #if request.method == 'POST':
-        #form = EnterQuestionsForm(request.POST)
-        #if form.is_valid():
-         #   for i
-    #data= request.POST.get('name')
-    #
-    #    numString += '3'
-    # obj = PeerAssessment.objects.get(pid=1)
-    # context = {
-    #     'object': obj,
-    #     'loopc': '123456789'
-    # }
-    if request.method == 'POST':
-        form = EnterQuestionsForm(request.POST or None)
-        if form.is_valid():
-            myQuestions = form.save()
-            myQuestions.private_field = "2"
-            myQuestions.save()
-            return HttpResponseRedirect('/home/')
-    else:
-        form = EnterQuestionsForm()
+# def enterQuestions(request):
+#     #if request.method == 'POST':
+#         #form = EnterQuestionsForm(request.POST)
+#         #if form.is_valid():
+#          #   for i
+#     #data= request.POST.get('name')
+#     #
+#     #    numString += '3'
+#     # obj = PeerAssessment.objects.get(pid=1)
+#     # context = {
+#     #     'object': obj,
+#     #     'loopc': '123456789'
+#     # }
+#     if request.method == 'POST':
+#         form = EnterQuestionsForm(request.POST or None)
+#         if form.is_valid():
+#             myQuestions = form.save()
+#             myQuestions.private_field = "2"
+#             myQuestions.save()
+#             return HttpResponseRedirect('/home/')
+#     else:
+#         form = EnterQuestionsForm()
     
-    return render(request,"enterQuestions.html", {'form': form})
+#     return render(request,"enterQuestions.html", {'form': form})
 
 @login_required
 def studentTeacherLinking(request):

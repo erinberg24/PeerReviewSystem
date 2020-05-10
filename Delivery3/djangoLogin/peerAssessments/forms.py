@@ -2,7 +2,6 @@ from django.forms import ModelForm
 from django import forms
 
 from .models import PeerAssessment
-from .models import Question
 
 class PeerAssessmentForm(forms.ModelForm):
     class Meta:
@@ -44,14 +43,6 @@ class PeerAssessmentForm(forms.ModelForm):
     # startdate = forms.DateField()
     # enddate = forms.DateField()
     # number = forms.IntegerField()
-    
-class EnterQuestionsForm(forms.ModelForm):
-    class Meta:
-        model = Question
-        fields = [
-                'qType',
-                'questionText'
-        ]
         
 
     # def __init__(self, *args, **kwargs):
