@@ -26,16 +26,18 @@
       </div>
   
       <div>
-          <h1>Welcome, Professor {{ object.lname }} </h1><br>
+          <center><h1>Welcome, Professor {{ object.lname }} </h1></center><br>
       </div>
   
       <div>
-          <h3>Choose a course.</h3> 
-          <select id="courseSelect" class="select-control">
-            {% for course in object.mycourses.all %}
-            <option value="class">{{ course }}</option>
-            {% endfor %}
-          </select>
+          <center><h3>Your Courses</h3></center>
+            <center><div style="width:350px;height:125px;line-height:1em;overflow:auto;padding:5px;border:4px double;font-size:large;border-color: #9b4dca;">
+            <ul style="list-style-type: none;">
+              <li></li>
+              {% for course in object.mycourses.all %}
+              <li>{{ course }}</li>
+              {% endfor %}
+          </ul></center>
           <br><br>
       </div>
   
