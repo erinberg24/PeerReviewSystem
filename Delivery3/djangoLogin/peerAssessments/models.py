@@ -65,6 +65,27 @@ class PeerAssessment(models.Model):
     def __str__(self):
         title = str(self.pid)
         return title
+    
+# class Team(models.Model):
+#     tid = models.AutoField(primary_key=True)
+
+# class Answers(models.Model):
+#     qid = models.AutoField(primary_key=True)
+#     aType = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice")
+#     answerText = models.CharField(max_length=500)
+#     pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
+#     sid = models.ForeignKey('Student', on_delete=models.CASCADE)
+
+#     def __str__(self):
+#         title = self.questionText
+#         return title
+
+# class CompletedAssessments(model.Model):
+#     mcAnswers = models.ManyToManyField(Answers)
+#     textAnswers = models.ManyToManyField(Answers)
+#     sid = models.ForeignKey('Student', on_delete=models.CASCADE)
+#     pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
+
 
 
 #in admin.py

@@ -20,6 +20,7 @@ class PeerAssessmentForm(forms.ModelForm):
         'endDate': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
         'number': forms.NumberInput(attrs={'style': 'width:10ch'})
     }
+
     # name = forms.CharField()
     # cid = forms.IntegerField()
     # startdate = forms.DateField()

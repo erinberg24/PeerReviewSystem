@@ -23,25 +23,6 @@ def createAssessment(request):
     context = {
         'form': form
     }
-    # if request.method == 'POST':
-
-    #     form = PeerAssessmentForm(request.POST)
-
-    #     if form.is_valid():
-    #         startdate = request.POST.get('startdate', '') 
-    #         enddate = request.POST.get('enddate', '')
-    #         title = request.POST.get('title', '')
-    #         cid = request.POST.get('cid', '')
-    #         number = request.POST.get('number', '')
-    #         number = int(number)
-    #         #for each question, make a question model and then add them all to questions.
-    #         #request.session['number'] = number
-    #         pa_obj = PeerAssessment(startdate = startdate, enddate = enddate, cid=cid)
-    #         pa.obj.save()
-
-    #         return HttpResponseRedirect('enterQuestions') #Redirect after POST
-    # else:
-    #     form = PeerAssessmentForm()
 
     return render(request,"createPeerAssessment.html", context)
 
