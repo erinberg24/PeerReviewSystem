@@ -24,7 +24,7 @@
     </div>
 
   <h1>Create a Peer Assessment</h1>
-      <form action="" method="POST">{% csrf_token %}
+      <form action="{% url 'createPeerAssessment' %}" method="POST">{% csrf_token %}
       <p>Peer Assessment Name</p>{{ form.name }}
       <p>Course</p>{{ form.cid }}
       <p>Start Date</p>{{ form.startDate }}

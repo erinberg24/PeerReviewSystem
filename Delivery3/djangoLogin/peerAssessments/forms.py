@@ -7,12 +7,12 @@ from .models import Question
 class PeerAssessmentForm(forms.ModelForm):
     class Meta:
         model = PeerAssessment
+        exclude = ["iid"]
         fields = [
             'name', 
             'cid', 
             'startDate', 
             'endDate', 
-            'iid',
             'question1Type',
             'question1Text',
             'question2Type',
@@ -48,7 +48,6 @@ class PeerAssessmentForm(forms.ModelForm):
 class EnterQuestionsForm(forms.ModelForm):
     class Meta:
         model = Question
-        exclude = ["pid"]
         fields = [
                 'qType',
                 'questionText'

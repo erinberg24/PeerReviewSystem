@@ -10,6 +10,7 @@ from .models import PeerAssessment
 from .models import Question
 from .forms import PeerAssessmentForm
 from .forms import EnterQuestionsForm
+from django.core.urlresolvers import reverse
 
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -20,12 +21,18 @@ def allAssessments(request):
     return render(request,"templates/allAssessments.html", {})
 
 def createPeerAssessment(request): 
+    current_user = request.user.email
     if request.method == 'POST':
         form = PeerAssessmentForm(request.POST)
         if form.is_valid():
-            form.save()
-            number = form.number
-        return HttpResponseRedirect('/home/')
+            instance = form.save(commit=False)
+            teacher = Instructor.objects.get(email=current_user)
+            instance.iid = teacher
+            instance.save()
+            #newdata = models.PeerAssessment.objects.get(name=instance.name) # get it back
+        else:
+            print(form.errors)
+#        return HttpResponseRedirect('/home/')
     else:
         form = PeerAssessmentForm()
 
