@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .models import Instructor
 from .models import Student
 from .models import Course
@@ -19,16 +20,16 @@ def allAssessments(request):
     return render(request,"templates/allAssessments.html", {})
 
 def createAssessment(request): 
+    if request.method == 'POST':
+        form = PeerAssessmentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            number = form.number
+        return HttpResponseRedirect('/enterQuestions/')
+    else:
+        form = PeerAssessmentForm()
 
-    form = PeerAssessmentForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-
-    context = {
-        'form': form
-    }
-
-    return render(request,"createPeerAssessment.html", context)
+    return render(request,"createPeerAssessment.html", {'form': form})
 
 def enterQuestions(request):
     #if request.method == 'POST':
@@ -36,25 +37,24 @@ def enterQuestions(request):
         #if form.is_valid():
          #   for i
     #data= request.POST.get('name')
-    #number = request.session['number']
+    #
     #    numString += '3'
     # obj = PeerAssessment.objects.get(pid=1)
     # context = {
     #     'object': obj,
     #     'loopc': '123456789'
     # }
-
-    form = EnterQuestionsForm(request.POST or None)
-    if form.is_valid():
-        myQuestions = form.save()
-        myQuestions.private_field = "2"
-        myQuestions.save()
-
-    context = {
-        'form': form
-    }
-    #context= {'data':data}
-    return render(request,"enterQuestions.html", context)
+    if request.method == 'POST':
+        form = EnterQuestionsForm(request.POST or None)
+        if form.is_valid():
+            myQuestions = form.save()
+            myQuestions.private_field = "2"
+            myQuestions.save()
+            return HttpResponseRedirect('/home/')
+    else:
+        form = EnterQuestionsForm()
+    
+    return render(request,"enterQuestions.html", {'form': form})
 
 @login_required
 def studentTeacherLinking(request):
@@ -64,8 +64,10 @@ def studentTeacherLinking(request):
 
     if (isTeacher == True):
         obj = Instructor.objects.get(email=current_user)
+        pas = PeerAssessment.objects.filter(iid=obj.iid)
         context = {
-            'object': obj
+            'object': obj,
+            'pas': pas
         }
         return render(request,"home.html", context)
     else:
@@ -77,20 +79,30 @@ def studentTeacherLinking(request):
 
 
 
-
 def takePeerAssessment(request):
-    obj = PeerAssessment.objects.get(pid=1)
-    context = {
-        'object': obj
-    }
+    if request.method == 'POST':
+        form = StudentResponse(request.POST)
+        if form.is_valid():
+            form.save()
+        context = {
+            'form': form
+        }
+        return HttpResponseRedirect('home')
+    else:     
+        obj = PeerAssessment.objects.get(pid=1)
+        form = StudentResponse()
+        context = {
+            'object': obj,
+            'form': form
+        }
     return render(request,"takePeerAssessment.html", context)
 
 
 # this needs to be updated
-def studentResults(request):
-    obj = studentResults.objects.get(pid=1)
-    context = {
-        'object': obj
-    }
-    return render(request,"",context)
+# def studentResults(request):
+#     obj = studentResults.objects.get(pid=1)
+#     context = {
+#         'object': obj
+#     }
+#     return render(request,"",context)
 

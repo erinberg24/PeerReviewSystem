@@ -43,8 +43,9 @@
           <h3>Choose a previous peer assessment to view its results.</h3> 
           <div>
               <select id="assessmentViewer" class="select-control">
-                  <option value="view">Iteration 1</option>
-                  <option value="view">Iteration2</option>
+                {% for assess in pas %}
+                <option value="class">{{ assess }}</option>
+                {% endfor %}
               </select>
               <br><br>
           </div>

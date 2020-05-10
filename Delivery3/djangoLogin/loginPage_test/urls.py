@@ -23,7 +23,7 @@ from peerAssessments import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('createPeerAssessment/', TemplateView.as_view(template_name="createPeerAssessment.html"), name='createPeerAssessment'),
+    #url('createPeerAssessment/', TemplateView.as_view(template_name="createPeerAssessment.html"), name='createPeerAssessment'),
     url('instructorResults/', TemplateView.as_view(template_name="instructorResults.html"), name='instructorResults'),
     url('studentResults/', TemplateView.as_view(template_name="studentResults.html"), name='studentResults'),
     #url('enterQuestions/', TemplateView.as_view(template_name="enterQuestions.html"), name="enterQuestions"),
@@ -34,7 +34,7 @@ urlpatterns = [
     url('home/', views.studentTeacherLinking, name='home'),
 
 
-    url(r'^createassessment/', views.createAssessment, name="createassessment"),
+    url('createPeerAssessment/', views.createAssessment, name="createassessment"),
     url('enterQuestions/', views.enterQuestions, name='enterQuestions'),
     url('takePeerAssessment/', views.takePeerAssessment, name="takePeerAssessment")
 

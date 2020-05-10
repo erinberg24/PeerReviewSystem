@@ -65,30 +65,46 @@ class PeerAssessment(models.Model):
     questions = models.ManyToManyField(Question)
     iid = models.ForeignKey('Instructor', on_delete=models.CASCADE)
     cid = models.ForeignKey('Course', on_delete=models.CASCADE)
+    question1Text = models.CharField(max_length=500)
+    question1Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice") 
+    question2Text = models.CharField(max_length=500)
+    question2Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice") 
+    question3Text = models.CharField(max_length=500)
+    question3Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice") 
+    question4Text = models.CharField(max_length=500)
+    question4Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice") 
+    question5Text = models.CharField(max_length=500)
+    question5Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice")
+
 
     def __str__(self):
-        title = str(self.pid)
+        title = str(self.name)
         return title
     
-# class Team(models.Model):
-#     tid = models.AutoField(primary_key=True)
+class Team(models.Model):
+    tid = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=40)
+    course = models.ForeignKey('Course', on_delete=models.CASCADE)
+    students = models.ManyToManyField(Student)
+     
 
-# class Answers(models.Model):
-#     qid = models.AutoField(primary_key=True)
-#     aType = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice")
-#     answerText = models.CharField(max_length=500)
-#     pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
-#     sid = models.ForeignKey('Student', on_delete=models.CASCADE)
+class CompletedAssessments(models.Model):
+    sid = models.ForeignKey('Student', on_delete=models.CASCADE)
+    pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
+    answer1 = models.TextField()
+    answer2 = models.TextField()
+    answer3 = models.FloatField()
+    answer4 = models.FloatField()
+    answer5 = models.FloatField()
+    answer6 = models.FloatField()
+    answer7 = models.FloatField()
+    answer8 = models.FloatField()
+    answer9 = models.FloatField()
+    answer10 = models.FloatField()
 
-#     def __str__(self):
-#         title = self.questionText
-#         return title
-
-# class CompletedAssessments(model.Model):
-#     mcAnswers = models.ManyToManyField(Answers)
-#     textAnswers = models.ManyToManyField(Answers)
-#     sid = models.ForeignKey('Student', on_delete=models.CASCADE)
-#     pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
+    def __str__(self):
+         title = self.sid
+         return title
 
 
 
