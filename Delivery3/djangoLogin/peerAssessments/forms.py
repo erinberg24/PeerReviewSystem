@@ -12,7 +12,6 @@ class PeerAssessmentForm(forms.ModelForm):
             'cid', 
             'startDate', 
             'endDate', 
-            'number',
             'iid'
         ]
         widgets = {

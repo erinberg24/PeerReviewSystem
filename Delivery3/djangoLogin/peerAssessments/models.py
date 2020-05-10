@@ -61,7 +61,6 @@ class PeerAssessment(models.Model):
     name = models.CharField(max_length=100)
     startDate = models.DateTimeField()
     endDate = models.DateTimeField() 
-    number = models.IntegerField()
     questions = models.ManyToManyField(Question)
     iid = models.ForeignKey('Instructor', on_delete=models.CASCADE)
     cid = models.ForeignKey('Course', on_delete=models.CASCADE)
@@ -75,7 +74,16 @@ class PeerAssessment(models.Model):
     question4Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice") 
     question5Text = models.CharField(max_length=500)
     question5Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice")
-
+    question6Text = models.CharField(max_length=500)
+    question6Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice")
+    question7Text = models.CharField(max_length=500)
+    question7Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice")
+    question8Text = models.CharField(max_length=500)
+    question8Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice")
+    question9Text = models.CharField(max_length=500)
+    question9Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice")
+    question10Text = models.CharField(max_length=500)
+    question10Type = models.CharField(max_length= 20, choices=QUESTION_TYPES, default="Multiple Choice")
 
     def __str__(self):
         title = str(self.name)
