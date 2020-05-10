@@ -84,3 +84,11 @@ def takePeerAssessment(request):
         'object': obj
     }
     return render(request,"takePeerAssessment.html", context)
+
+# this needs to be updated
+def studentResults(request):
+    obj = studentResults.objects.get(pid=1)
+    context = {
+        'object': obj
+    }
+    return render(request,"",context)
