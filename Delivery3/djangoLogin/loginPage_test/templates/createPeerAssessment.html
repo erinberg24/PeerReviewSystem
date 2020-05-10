@@ -24,13 +24,14 @@
     </div>
 
   <h1>Create a Peer Assessment</h1>
-      <form action="{% url 'enterQuestions' %}" method="post">{% csrf_token %}
-      <p>Peer Assessment Name</p><input type="text" id="name" name="name">
-      <p>CourseI ID</p><input type="text" id="cid" name="cid">
-      <p>Start Date</p><input type="date" id="start" name="startdate" min="2020-01-01" max="2030-12-31">
-      <p>End Date</p><input type="date" id="start" name="enddate" min="2020-01-01" max="2030-12-31">
-      <p>How Many Questions Would You Like To Enter?</p><input type="number" id="number" name="number" value="">
-      <input type="submit" value="Submit" />
+      <form action="" method="POST">{% csrf_token %}
+      <p>Peer Assessment Name</p>{{ form.name }}
+      <p>Course</p>{{ form.cid }}
+      <p>Start Date</p>{{ form.startDate }}
+      <p>End Date</p>{{ form.endDate }}
+      <p>How Many Questions Would You Like To Enter?</p>{{ form.number }} 
+      <br>
+      <input type="submit" value="Save" />
       
 </body>
 {% endblock %}

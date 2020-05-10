@@ -8,6 +8,7 @@ from .models import Course
 from .models import PeerAssessment
 from .models import Question
 from .forms import PeerAssessmentForm
+from .forms import EnterQuestionsForm
 
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -18,26 +19,35 @@ def allAssessments(request):
     return render(request,"templates/allAssessments.html", {})
 
 def createAssessment(request): 
-    if request.method == 'POST':
 
-        form = PeerAssessmentForm(request.POST)
-        if form.is_valid():
-            startdate = request.POST.get('startdate', '') 
-            enddate = request.POST.get('enddate', '')
-            title = request.POST.get('title', '')
-            cid = request.POST.get('cid', '')
-            number = request.POST.get('number', '')
-            number = int(number)
-            #for each question, make a question model and then add them all to questions.
-            #request.session['number'] = number
-            pa_obj = PeerAssessment(startdate = startdate, enddate = enddate, cid=cid)
-            pa.obj.save()
+    form = PeerAssessmentForm(request.POST or None)
+    if form.is_valid():
+        form.save()
 
-            return HttpResponseRedirect('enterQuestions') #Redirect after POST
-    else:
-        form = PeerAssessmentForm()
+    context = {
+        'form': form
+    }
+    # if request.method == 'POST':
 
-    return render(request,"templates/createAssessment.html", {'form': form,})
+    #     form = PeerAssessmentForm(request.POST)
+
+    #     if form.is_valid():
+    #         startdate = request.POST.get('startdate', '') 
+    #         enddate = request.POST.get('enddate', '')
+    #         title = request.POST.get('title', '')
+    #         cid = request.POST.get('cid', '')
+    #         number = request.POST.get('number', '')
+    #         number = int(number)
+    #         #for each question, make a question model and then add them all to questions.
+    #         #request.session['number'] = number
+    #         pa_obj = PeerAssessment(startdate = startdate, enddate = enddate, cid=cid)
+    #         pa.obj.save()
+
+    #         return HttpResponseRedirect('enterQuestions') #Redirect after POST
+    # else:
+    #     form = PeerAssessmentForm()
+
+    return render(request,"createPeerAssessment.html", context)
 
 def enterQuestions(request):
     #if request.method == 'POST':
@@ -47,10 +57,20 @@ def enterQuestions(request):
     #data= request.POST.get('name')
     #number = request.session['number']
     #    numString += '3'
-    obj = PeerAssessment.objects.get(pid=1)
+    # obj = PeerAssessment.objects.get(pid=1)
+    # context = {
+    #     'object': obj,
+    #     'loopc': '123456789'
+    # }
+
+    form = EnterQuestionsForm(request.POST or None)
+    if form.is_valid():
+        myQuestions = form.save()
+        myQuestions.private_field = "2"
+        myQuestions.save()
+
     context = {
-        'object': obj,
-        'loopc': '123456789'
+        'form': form
     }
     #context= {'data':data}
     return render(request,"enterQuestions.html", context)
@@ -77,3 +97,9 @@ def studentTeacherLinking(request):
 
 
 
+def takePeerAssessment(request):
+    obj = PeerAssessment.objects.get(pid=1)
+    context = {
+        'object': obj
+    }
+    return render(request,"takePeerAssessment.html", context)
