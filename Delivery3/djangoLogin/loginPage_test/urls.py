@@ -33,7 +33,7 @@ urlpatterns = [
     #url('', TemplateView.as_view(template_name='home.html'), name='home')
     #path('home/', instructorHome)
     url('home/', views.instructorHome, name='home'),
-    url(r'^createassessment/', views.createAssessment, name="createassessment"),
+    url('createassessment/', views.createAssessment, name="createassessment"),
     url('enterQuestions/', views.enterQuestions, name='enterQuestions'),
 
     #url(r'contact/$', views.contact, name='contact')

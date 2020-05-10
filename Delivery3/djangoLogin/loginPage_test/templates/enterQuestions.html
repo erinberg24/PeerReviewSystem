@@ -23,21 +23,24 @@
         <br>
     </div>
 
-    <table style="table-layout: fixed; width: 500px">
+    <table style="table-layout: fixed; width: 900px">
         <colgroup>
         <col style="width: 97px">
         <col style="width: 135px">
         </colgroup>
         <tr>
-            <th>Question Number</th>
+            <th>Question Type</th>
             <th>Question</th>
         </tr>
-        {% for quest in loopc %}
+        <tr>
+        <td>{{ form.qType }}</td><td>{{ form.questionText }}</td>
+        </tr>
+        <!-- {% for quest in loopc %}
         <tr>
             <td>{{ quest }}</td>
             <td><input type="text" id="question" name="question" value=""></td>
         </tr>
-        {% endfor %} 
+        {% endfor %}  -->
     </table>
     <input type="submit" value="Submit" />
 </body>
