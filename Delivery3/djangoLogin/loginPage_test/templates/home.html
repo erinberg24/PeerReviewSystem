@@ -11,7 +11,7 @@
   <!-- Hi {{ user.username }}! -->
   <head>
     <meta charset="utf-8">
-    <title>Welcome, Professor {{ object.lname }} </title>
+    <title>Welcome, Professor {{ object.lname }}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/fontawesome.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.min.css' %}">
@@ -76,7 +76,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Welcome, Student.</title>
+    <title>Welcome, {{ object.fname }} {{ object.lname }}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/fontawesome.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.min.css' %}">
@@ -91,7 +91,7 @@
       </div>
   
       <div>
-          <h1>Welcome Student</h1><br>
+          <h1>Welcome Student {{ object1.fname }} {{ object1.lname }}</h1><br>
       </div>
   
       <div>

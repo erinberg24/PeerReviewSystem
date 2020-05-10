@@ -3,13 +3,17 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from .models import Instructor
+from .models import Student
 from .models import Course
 from .models import PeerAssessment
 from .models import Question
 from .forms import PeerAssessmentForm
 from .forms import EnterQuestionsForm
 
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+
+
 
 def allAssessments(request): 
     return render(request,"templates/allAssessments.html", {})
@@ -71,12 +75,27 @@ def enterQuestions(request):
     #context= {'data':data}
     return render(request,"enterQuestions.html", context)
 
-def instructorHome(request):
-    obj = Instructor.objects.get(iid=1)
-    context = {
-        'object': obj
-    }
-    return render(request,"home.html", context)
+@login_required
+def studentTeacherLinking(request):
+    isTeacher = request.user.is_teacher
+    current_user = request.user.email
+    print current_user
+
+    if (isTeacher == True):
+        obj = Instructor.objects.get(email=current_user)
+        context = {
+            'object': obj
+        }
+        return render(request,"home.html", context)
+    else:
+        obj = Student.objects.get(email=current_user)
+        context = {
+            'object': obj
+        }
+        return render(request,"home.html", context)
+
+
+
 
 def takePeerAssessment(request):
     obj = PeerAssessment.objects.get(pid=1)
