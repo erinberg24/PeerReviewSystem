@@ -25,7 +25,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('createPeerAssessment/', TemplateView.as_view(template_name="createPeerAssessment.html"), name='createPeerAssessment'),
     url('instructorResults/', TemplateView.as_view(template_name="instructorResults.html"), name='instructorResults'),
-    url('takePeerAssessment/', TemplateView.as_view(template_name="takePeerAssessment.html"), name='takePeerAssessment'),
     url('studentResults/', TemplateView.as_view(template_name="studentResults.html"), name='studentResults'),
     #url('enterQuestions/', TemplateView.as_view(template_name="enterQuestions.html"), name="enterQuestions"),
     url('accounts/', include('accounts.urls')),
@@ -35,6 +34,7 @@ urlpatterns = [
     url('home/', views.instructorHome, name='home'),
     url('createassessment/', views.createAssessment, name="createassessment"),
     url('enterQuestions/', views.enterQuestions, name='enterQuestions'),
+    url('takePeerAssessment/', views.takePeerAssessment, name="takePeerAssessment")
 
     #url(r'contact/$', views.contact, name='contact')
 

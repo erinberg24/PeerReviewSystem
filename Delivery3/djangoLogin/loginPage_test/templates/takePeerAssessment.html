@@ -28,18 +28,7 @@
 
     <div>
         <div>
-            {% for question in object.questions.all}
-                {if question.type == 'MC'}
-                <p>{{forcount}} {{question.text}}</p>
-                <label><input type="radio" name="1" value="SA"> Strongly Agree</label>
-                <label><input type="radio" name="1" value="A"> Agree</label>
-                <label><input type="radio" name="1" value="N"> Neutral</label>
-                <label><input type="radio" name="1" value="D"> Disagree</label>
-                <label><input type="radio" name="1" value="SD"> Strongly Disagree</label><br>
-                {else}
-                <p>{{forcount}} {{question.text}}</p>
-                <textarea rows="4", columns="100"></textarea>
-            {% endfor %}
+
         </div>
         <div>
            

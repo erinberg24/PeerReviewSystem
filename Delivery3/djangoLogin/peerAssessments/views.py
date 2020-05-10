@@ -78,3 +78,9 @@ def instructorHome(request):
     }
     return render(request,"home.html", context)
 
+def takePeerAssessment(request):
+    obj = PeerAssessment.objects.get(pid=1)
+    context = {
+        'object': obj
+    }
+    return render(request,"takePeerAssessment.html", context)
