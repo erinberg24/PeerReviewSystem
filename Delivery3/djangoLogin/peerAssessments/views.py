@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from .models import Instructor
 from .models import Student
 from .models import Course
+from .models import Team
 from .models import PeerAssessment
 from .forms import PeerAssessmentForm
 
@@ -76,8 +77,10 @@ def studentTeacherLinking(request):
         return render(request,"home.html", context)
     else:
         obj = Student.objects.get(email=current_user)
+        teams = Team.objects.filter(students=obj)
         context = {
-            'object': obj
+            'object': obj,
+            'teams': teams
         }
         return render(request,"home.html", context)
 

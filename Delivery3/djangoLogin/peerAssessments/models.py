@@ -29,6 +29,7 @@ class Student(models.Model):
     email = models.CharField(max_length = 20, unique=True)
     eagleid = models.IntegerField(unique=True)
     password = models.CharField(max_length = 20)
+    courses = models.ManyToManyField(Course)
 
     def __str__(self):
         return self.fname + " " + self.lname
@@ -83,6 +84,10 @@ class Team(models.Model):
     name = models.CharField(max_length=40)
     course = models.ForeignKey('Course', on_delete=models.CASCADE)
     students = models.ManyToManyField(Student)
+
+    def __str__(self):
+        title = str(self.name)
+        return title
      
 
 class CompletedAssessments(models.Model):

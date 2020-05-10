@@ -92,8 +92,20 @@
       </div>
   
       <div>
-          <h1>Welcome Student {{ object1.fname }} {{ object1.lname }}</h1><br>
+          <center><h1>Welcome to Your Student Page, {{ object.fname }} {{ object.lname }}</h1></center><br>
       </div>
+
+      <ul>
+      {% for acourse in object.courses.all %}
+        <li>{{ acourse }}</li>
+      {% endfor %}
+      </ul>
+
+      <ul>
+        {% for team in teams %}
+          <li>{{ team }}</li>
+        {% endfor %}
+      </ul>
   
       <div>
           <h3>Take a Peer Assessment</h3> 
