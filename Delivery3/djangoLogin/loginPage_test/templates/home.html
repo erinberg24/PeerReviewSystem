@@ -96,12 +96,6 @@
       </div>
 
       <ul>
-      {% for acourse in object.courses.all %}
-        <li>{{ acourse }}</li>
-      {% endfor %}
-      </ul>
-
-      <ul>
         {% for team in teams %}
           <li>{{ team }}</li>
         {% endfor %}
@@ -110,9 +104,11 @@
       <div>
           <h3>Take a Peer Assessment</h3> 
           <select id="ranking-type" class="select-control">
-              <option value="Average Evaluation"></option>
-              <option value="Average Evaluation">CSCI2254: Iteration 1</option>
-              <option value="Academic">CSCI3356: Iteration 2</option>
+            {% for team in teams %}
+              {% for livePA in team.livePAs.all %}
+              <option value="Average Evaluation"> {{ livePA }}</option>
+              {% endfor %}
+            {% endfor %}
           </select>
           <button><a href="{% url 'takePeerAssessment' %}"><font color="white">Submit</font></a></button> 
           <br><br>

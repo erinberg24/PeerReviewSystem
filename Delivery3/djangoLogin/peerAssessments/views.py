@@ -27,7 +27,10 @@ def createPeerAssessment(request):
             teacher = Instructor.objects.get(email=current_user)
             instance.iid = teacher
             instance.save()
-            #newdata = models.PeerAssessment.objects.get(name=instance.name) # get it back
+            #Assign this peer assessment to all teams in the course
+            teamsToAssignAssessmentTo = Team.objects.filter(theCourse=instance.cid)
+            for team in teamsToAssignAssessmentTo:
+                team.livePAs.add(instance.pid)
         else:
             print(form.errors)
 #        return HttpResponseRedirect('/home/')
