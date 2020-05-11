@@ -95,6 +95,7 @@ class Instructor(models.Model):
 class CompletedAssessments(models.Model):
     sid = models.ForeignKey('Student', on_delete=models.CASCADE)
     pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
+    evalStudent = models.ForeignKey('Student', related_name='evaluated_student_name', on_delete=models.CASCADE)
     answer1 = models.TextField()
     answer2 = models.TextField()
     answer3 = models.PositiveIntegerField(validators=[MaxValueValidator(5)])

@@ -45,9 +45,9 @@ class PeerAssessmentForm(forms.ModelForm):
 class StudentResponseForm(forms.ModelForm):
     class Meta:
         model = CompletedAssessments
+        exclude = ["sid", "pid"]
         fields = [
-            'sid',
-            'pid',
+            'evalStudent',
             'answer1',
             'answer2',
             'answer3',

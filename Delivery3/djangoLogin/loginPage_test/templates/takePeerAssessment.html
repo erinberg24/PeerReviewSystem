@@ -24,7 +24,8 @@
     <div>
         <h1>Peer Assessment</h1>
         <h3>Please fill out the following peer assessment your team member</h3>
-        {{ form.sid }}
+        <form action="{% url 'takePeerAssessment' %}" method="POST">{% csrf_token %}
+        {{ form.evalStudent }}
     </div>
 
     <div>

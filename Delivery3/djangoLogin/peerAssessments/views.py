@@ -68,19 +68,28 @@ def studentTeacherLinking(request):
 
 
 def takePeerAssessment(request):
+    current_user = request.user.email
+    current = Student.objects.get(email=current_user)
+    obj2 = PeerAssessment.objects.get(pid=2)
     if request.method == 'POST':
         form = StudentResponseForm(request.POST)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.sid = current
+            instance.pid = obj2
+            instance.save()
+        else:
+            print(form.errors)
         context = {
             'form': form
         }
         return HttpResponseRedirect('home')
     else: 
-        print(request.GET.get("paTakeChoice"))
-        obj = PeerAssessment.objects.get(name=request.GET.get("paTakeChoice"))
+        if request.GET.get("paTakeChoice"):
+            obj = PeerAssessment.objects.get(name=request.GET.get("paTakeChoice"))
+        else:
+            obj = PeerAssessment.objects.get(pid=1)
         form = StudentResponseForm()
-        # print(StudentResponseForm())
         context = {
             'object': obj,
             'form': form
