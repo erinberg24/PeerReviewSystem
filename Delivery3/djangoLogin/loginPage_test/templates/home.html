@@ -60,11 +60,10 @@
                 <option value="class">{{ assess }}</option>
                 {% endfor %}
               </select>
-              <br><br>
+              <button><a id = "pageSwitcher" href="{% url 'instructorResults' %}"><font color="white">Submit</font></a></button></center><br><br> 
           </div>
         </div>
   
-      <button><a id = "pageSwitcher" href="{% url 'instructorResults' %}"><font color="white">Submit</font></a></button></center><br><br> 
 
       <center><div>
         <h3>Create or Change Teams</h3> 
@@ -104,16 +103,23 @@
           <center><h1>Welcome to Your Student Page, {{ object.fname }} {{ object.lname }}</h1></center><br>
       </div>
 
-      <ul>
-        {% for team in teams %}
-          <li>{{ team }}</li>
-        {% endfor %}
-      </ul>
-  
+
       <div>
+        <center><h4>Your Teams</h4></center>
+          <center><div style="width:350px;height:125px;line-height:1em;overflow:auto;padding:5px;border:4px double;font-size:large;border-color: #9b4dca;">
+          <ul style="list-style-type: none;">
+            <li></li>
+            {% for team in teams %}
+            <li>{{ team }}</li>
+            {% endfor %}
+        </ul></center>
+        <br><br>
+    </div>      
+  
+     <center><div>
           <h3>Take a Peer Assessment</h3> 
           <form action = "{% url 'takePeerAssessment' %}">
-          <select id="paTakeChoice" name="paTakeChoice">
+          <select id="paTakeChoice" name="paTakeChoice" style='width:75ch'>
             {% for team in teams %}
               {% for livePA in team.livePAs.all %}
               <option value="{{ livePA }}"> {{ livePA }}</option>
@@ -124,19 +130,19 @@
           </form>
           <!-- <button><a href="{% url 'takePeerAssessment' %}"><font color="white">Submit</font></a></button>  -->
           <br><br>
-      </div>
+      </div></center>
   
-      <div>
+      <center><div>
           <h3>View Your Results</h3> 
           <div>
-              <select id="ranking-type" class="select-control">
+              <select id="ranking-type" class="select-control" style='width:75ch'>
                   <option value="Average Evaluation"></option>
                   <option value="Academic"><a href="createPeerAssessment.html">CSCI3356: Iteration 1</a></option>
               </select>
               <button><a href="{% url 'studentResults' %}"><font color="white">Submit</font></a></button>
               <br><br>
           </div>
-      <div>
+      <div></center>
     
   </body>
 
