@@ -26,16 +26,17 @@ urlpatterns = [
     #url('createPeerAssessment/', TemplateView.as_view(template_name="createPeerAssessment.html"), name='createPeerAssessment'),
     url('instructorResults/', TemplateView.as_view(template_name="instructorResults.html"), name='instructorResults'),
     url('studentResults/', TemplateView.as_view(template_name="studentResults.html"), name='studentResults'),
+    url('createPeerAssessment/', views.createPeerAssessment, name="createPeerAssessment"),
+    url('takePeerAssessment/', views.takePeerAssessment, name="takePeerAssessment"),
     #url('enterQuestions/', TemplateView.as_view(template_name="enterQuestions.html"), name="enterQuestions"),
     url('accounts/', include('accounts.urls')),
     url('accounts/', include('django.contrib.auth.urls')), # new
     #url('', TemplateView.as_view(template_name='home.html'), name='home')
     #path('home/', instructorHome)
-    url('home/', views.studentTeacherLinking, name='home'),
+    url('home/', views.studentTeacherLinking, name='home')
 
 
-    url('createPeerAssessment/', views.createPeerAssessment, name="createPeerAssessment"),
-    url('takePeerAssessment/', views.takePeerAssessment, name="takePeerAssessment")
+
 
     #url(r'contact/$', views.contact, name='contact')
 

@@ -108,6 +108,7 @@
   
       <div>
           <h3>Take a Peer Assessment</h3> 
+          <form action = "{% url 'takePeerAssessment' %}">
           <select id="paTakeChoice" name="paTakeChoice">
             {% for team in teams %}
               {% for livePA in team.livePAs.all %}
@@ -115,7 +116,9 @@
               {% endfor %}
             {% endfor %}
           </select>
-          <button><a href="{% url 'takePeerAssessment' %}"><font color="white">Submit</font></a></button> 
+          <input type = "submit" value = "Submit">
+          </form>
+          <!-- <button><a href="{% url 'takePeerAssessment' %}"><font color="white">Submit</font></a></button>  -->
           <br><br>
       </div>
   

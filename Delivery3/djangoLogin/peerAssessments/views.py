@@ -75,13 +75,16 @@ def takePeerAssessment(request):
             'form': form
         }
         return HttpResponseRedirect('home')
-    else:     
-        obj = PeerAssessment.objects.get(pid=1)
+    else: 
+        print(request.GET.get("paTakeChoice"))
+        obj = PeerAssessment.objects.get(name=request.GET.get("paTakeChoice"))
         form = StudentResponseForm()
+        # print(StudentResponseForm())
         context = {
             'object': obj,
             'form': form
         }
+
     return render(request,"takePeerAssessment.html", context)
 
 
