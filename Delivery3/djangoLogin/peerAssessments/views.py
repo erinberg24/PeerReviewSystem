@@ -72,7 +72,7 @@ def takePeerAssessment(request):
     current = Student.objects.get(email=current_user)
     pidToUse = request.POST.get("p_id")
     print(pidToUse)
-    obj2 = PeerAssessment.objects.get(pid=2)
+    obj2 = PeerAssessment.objects.get(pid=10)
     if request.method == 'POST':
         form = StudentResponseForm(request.POST)
         if form.is_valid():
@@ -129,7 +129,7 @@ def studentResults(request):
     if request.method == 'GET':
         current_user = request.user.email
         current = Student.objects.get(email=current_user)
-        cas = CompletedAssessments.objects.filter(evalStudent=current)
+        cas = CompletedAssessments.objects.filter(evalStudent=current, pid=10)
         pidOfAssess = PeerAssessment.objects.get(pid=10)
         ans1 = []
         ans2 = []
@@ -141,8 +141,8 @@ def studentResults(request):
         ans8 = []
         ans9 = []
         ans10 = []
+        a = []
         for ca in cas:
-            if ca.pid == pidOfAssess:
                 ans1.append(ca.answer1)
                 ans2.append(ca.answer2)
                 ans3.append(int(ca.answer3))
@@ -153,14 +153,14 @@ def studentResults(request):
                 ans8.append(int(ca.answer8))
                 ans9.append(int(ca.answer9))
                 ans10.append(int(ca.answer10))
-        sum3 = sum(ans3)/len(ans3)
-        sum4 = sum(ans4)/len(ans4)
-        sum5 = sum(ans5)/len(ans5)
-        sum6 = sum(ans6)/len(ans6)
-        sum7 = sum(ans7)/len(ans7)
-        sum8 = sum(ans8)/len(ans8)
-        sum9 = sum(ans9)/len(ans9)
-        sum10 = sum(ans10)/len(ans10)
+        sum3 = round(sum(ans3)/float(len(ans3)), 2)
+        sum4 = round(sum(ans4)/float(len(ans4)), 2)
+        sum5 = round(sum(ans5)/float(len(ans5)), 2)
+        sum6 = round(sum(ans6)/float(len(ans6)), 2)
+        sum7 = round(sum(ans7)/float(len(ans7)), 2)
+        sum8 = round(sum(ans8)/float(len(ans8)), 2)
+        sum9 = round(sum(ans9)/float(len(ans9)), 2)
+        sum10 = round(sum(ans10)/float(len(ans10)), 2)
         context = {
             'current': current,
             'cas': cas,
