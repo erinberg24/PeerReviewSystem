@@ -5,6 +5,7 @@ from .models import Student
 from .models import Instructor
 from .models import PeerAssessment
 from .models import Team
+from .models import CompletedAssessments
 
 from django.contrib import admin
 
@@ -14,3 +15,4 @@ admin.site.register(Student)
 admin.site.register(Instructor)
 admin.site.register(PeerAssessment)
 admin.site.register(Team)
+admin.site.register(CompletedAssessments)

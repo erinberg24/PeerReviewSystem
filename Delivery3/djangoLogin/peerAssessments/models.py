@@ -108,7 +108,7 @@ class CompletedAssessments(models.Model):
     answer10 = models.PositiveIntegerField(validators=[MaxValueValidator(5)])
 
     def __str__(self):
-         title = self.sid
+         title = str(self.sid)
          return title
 
 

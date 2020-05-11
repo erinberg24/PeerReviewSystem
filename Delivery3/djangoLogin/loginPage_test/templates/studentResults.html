@@ -27,47 +27,48 @@
   </div>
 
     <h1>Peer Assessment Results</h1>
-    <h3>Here are your results.</h3> 
+    <h3 style="color: #9b4dca;">Here are your aggreggated results from students:</h3> 
+    {% for ca in cas %}
+    <h3 style="color: #9b4dca;">{{ ca }}</h3>
+    {% endfor %}
 
     <div>
 
-      <p>1. Did he/she adequately fulfill the assigned tasks?</p>
-      <p class="answerText">7.8</p>
+      <p><strong>1. {{ pidOfAssess.question1Text }}</strong></p>
+      {% for item in ans1 %}
+      <p class="answerText">{{ item }}</p>
+      {% endfor %}
 
-      <p>2. Did he/she assume the project as a team effort, providing support in project tasks?</p>
-      <p class="answerText">8.9</p>
-      <p>3. Did he/she demonstrate initiative to achieve project success?</p>
-      <p class="answerText">9.8</p>
-      <p>4. Did he/she fulfill his/her assignments properly, working transparently and in coordination with the rest of the team?</p>
-      <p class="answerText">7.4</p>
-      <p>5. Did he/she maintain good communication with the client, generating value to project execution?</p>
-      <p class="answerText">10.0</p>
-      <p>6. Was he/she able to seek help when there were problems?</p>
-      <p class="answerText">8.2</p>
-      <p>7. Did he/she show a communicative attitude facilitating the teamwork?</p>
-      <p class="answerText">7.2</p>
-      <p>8. Is he/she able to admit mistakes and accept criticism?</p>
-      <p class="answerText">9.2</p>
+
+      <p><strong>2. {{ pidOfAssess.question2Text }}</strong></p>
+      {% for item in ans2 %}
+      <p class="answerText">{{ item }}</p>
+      {% endfor %}
+
+      <p><strong>3. {{ pidOfAssess.question3Text }}</strong></p>
+      <p class="answerText">{{ sum3 }}</p>
+
+      <p><strong>4. {{ pidOfAssess.question4Text }}</strong></p>
+      <p class="answerText"> {{ sum4 }} </p>
+
+      <p><strong>5. {{ pidOfAssess.question5Text }}</strong></p>
+      <p class="answerText">{{ sum5 }}</p>
+
+      <p><strong>6. {{ pidOfAssess.question6Text }}</strong></p>
+      <p class="answerText">{{ sum6 }}</p>
+
+      <p><strong>7. {{ pidOfAssess.question7Text }}</strong></p>
+      <p class="answerText">{{ sum7 }}</p>
+
+      <p><strong>8. {{ pidOfAssess.question8Text }}</strong></p>
+      <p class="answerText">{{ sum8 }}</p>
+
+      <p><strong>9. {{ pidOfAssess.question9Text }}</strong></p>
+      <p class="answerText">{{ sum9 }}</p>
+
+      <p><strong>10. {{ pidOfAssess.question10Text }}</strong></p>
+      <p class="answerText">{{ sum10 }}</p>
     </div>
-    
-    <table style="table-layout: fixed; width: 750px">
-      <tr>
-        <th>Your Strengths</th>
-        <th>Your Weaknesses</th>
-      </tr>
-      <tr>
-        <td class="answerText">Diligent worker and good communicator</td>
-        <td class="answerText">Bad listener</td>
-      </tr>
-      <tr>
-        <td class="answerText">Takes initiative</td>
-        <td class="answerText">Tends to be lazy</td>
-      </tr>
-      <tr>
-        <td class="answerText">Strong knowledge of the concepts</td>
-        <td class="answerText">Procrastination</td>
-      </tr>
-    </table>
   
 </body>
 
