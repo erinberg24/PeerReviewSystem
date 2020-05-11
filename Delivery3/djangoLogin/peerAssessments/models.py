@@ -73,6 +73,7 @@ class Team(models.Model):
     theCourse = models.ForeignKey('Course', on_delete=models.CASCADE)
     students = models.ManyToManyField(Student)
     livePAs = models.ManyToManyField(PeerAssessment)
+    completedPAs = models.ManyToManyField(PeerAssessment, related_name='completedPAs')
 
     def __str__(self):
         title = str(self.name)

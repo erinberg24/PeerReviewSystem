@@ -24,7 +24,7 @@ from peerAssessments import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url('createPeerAssessment/', TemplateView.as_view(template_name="createPeerAssessment.html"), name='createPeerAssessment'),
-    url('instructorResults/', TemplateView.as_view(template_name="instructorResults.html"), name='instructorResults'),
+    #url('instructorResults/', TemplateView.as_view(template_name="instructorResults.html"), name='instructorResults'),
     #url('studentResults/', TemplateView.as_view(template_name="studentResults.html"), name='studentResults'),
     url('createPeerAssessment/', views.createPeerAssessment, name="createPeerAssessment"),
     url('takePeerAssessment/', views.takePeerAssessment, name="takePeerAssessment"),
@@ -35,7 +35,8 @@ urlpatterns = [
     #path('home/', instructorHome)
     url('home', views.studentTeacherLinking, name='home'),
     url('makeTeams/', views.makeTeams, name="makeTeams"),
-    url('studentResults/', views.studentResults, name="studentResults")
+    url('studentResults/', views.studentResults, name="studentResults"),
+    url('instructorResults/', views.instructorResults, name="instructorResults")
 
 
 

@@ -178,6 +178,112 @@ def studentResults(request):
         }
     return render(request, "studentResults.html", context)
 
+def instructorResults(request): 
+    if request.method == 'GET' and request.GET.get("yourChoice"):
+        if request.GET.get("yourChoice") == '2':
+            obj = Team.objects.get(tid=2)
+            if obj == Team.objects.get(tid=2):
+                pidOfAssess = PeerAssessment.objects.get(pid=9)
+                pidOfCompleteAssess = CompletedAssessments.objects.filter(pid=9)
+                ans1 = []
+                ans2 = []
+                ans3 = []
+                ans4 = []
+                ans5 = []
+                ans6 = []
+                ans7 = []
+                ans8 = []
+                ans9 = []
+                ans10 = []
+                for ca in pidOfCompleteAssess:
+                    ans1.append(ca.answer1)
+                    ans2.append(ca.answer2)
+                    ans3.append(int(ca.answer3))
+                    ans4.append(int(ca.answer4))
+                    ans5.append(int(ca.answer5))
+                    ans6.append(int(ca.answer6))
+                    ans7.append(int(ca.answer7))
+                    ans8.append(int(ca.answer8))
+                    ans9.append(int(ca.answer9))
+                    ans10.append(int(ca.answer10))
+                sum3 = round(sum(ans3)/float(len(ans3)),2)
+                sum4 = round(sum(ans4)/float(len(ans4)),2)
+                sum5 = round(sum(ans5)/float(len(ans5)), 2)
+                sum6 = round(sum(ans6)/float(len(ans6)), 2)
+                sum7 = round(sum(ans7)/float(len(ans7)), 2)
+                sum8 = round(sum(ans8)/float(len(ans8)), 2)
+                sum9 = round(sum(ans9)/float(len(ans9)), 2)
+                sum10 = round(sum(ans10)/float(len(ans10)),2)
+                context = {
+                    'current': Team.objects.get(tid=2),
+                    'ans1': ans1,
+                    'ans2': ans2,
+                    'sum3': sum3,
+                    'sum4': sum4,
+                    'sum5': sum5,
+                    'sum6': sum6,
+                    'sum7': sum7,
+                    'sum8': sum8,
+                    'sum9': sum9,
+                    'sum10': sum10,
+                    'pidOfAssess': pidOfAssess
+                }
+        else:
+            obj = Student.objects.get(fname=request.GET.get("yourChoice"))
+            pidOfAssess = PeerAssessment.objects.get(pid=9)
+            cas = CompletedAssessments.objects.filter(evalStudent=obj)
+            ans1 = []
+            ans2 = []
+            ans3 = []
+            ans4 = []
+            ans5 = []
+            ans6 = []
+            ans7 = []
+            ans8 = []
+            ans9 = []
+            ans10 = []
+            for ca in cas:
+                if ca.pid == pidOfAssess:
+                    ans1.append(ca.answer1)
+                    ans2.append(ca.answer2)
+                    ans3.append(int(ca.answer3))
+                    ans4.append(int(ca.answer4))
+                    ans5.append(int(ca.answer5))
+                    ans6.append(int(ca.answer6))
+                    ans7.append(int(ca.answer7))
+                    ans8.append(int(ca.answer8))
+                    ans9.append(int(ca.answer9))
+                    ans10.append(int(ca.answer10))
+            sum3 = round(sum(ans3)/float(len(ans3)),2)
+            sum4 = round(sum(ans4)/float(len(ans4)),2)
+            sum5 = round(sum(ans5)/float(len(ans5)),2)
+            sum6 = round(sum(ans6)/float(len(ans6)),2)
+            sum7 = round(sum(ans7)/float(len(ans7)),2)
+            sum8 = round(sum(ans8)/float(len(ans8)),2)
+            sum9 = round(sum(ans9)/float(len(ans9)),2)
+            sum10 = round(sum(ans10)/float(len(ans10)),2)
+            context = {
+                'obj': obj,
+                'ans1': ans1,
+                'ans2': ans2,
+                'sum3': sum3,
+                'sum4': sum4,
+                'sum5': sum5,
+                'sum6': sum6,
+                'sum7': sum7,
+                'sum8': sum8,
+                'sum9': sum9,
+                'sum10': sum10,
+                'pidOfAssess': pidOfAssess
+            }
+    else:
+        context = {
+
+        }
+
+    return render(request, "instructorResults.html", context)
+
+
 
 # this needs to be updated
 # def studentResults(request):
