@@ -57,7 +57,14 @@ class StudentResponseForm(forms.ModelForm):
             'answer10'
         ]
         widgets = {
-            'answer3': forms.NumberInput(attrs={'style': 'width:10ch'})
+            'answer3': forms.NumberInput(attrs={'style': 'width:10ch'}),
+            'answer4': forms.NumberInput(attrs={'style': 'width:10ch'}),
+            'answer5': forms.NumberInput(attrs={'style': 'width:10ch'}),
+            'answer6': forms.NumberInput(attrs={'style': 'width:10ch'}),
+            'answer7': forms.NumberInput(attrs={'style': 'width:10ch'}),
+            'answer8': forms.NumberInput(attrs={'style': 'width:10ch'}),
+            'answer9': forms.NumberInput(attrs={'style': 'width:10ch'}),
+            'answer10': forms.NumberInput(attrs={'style': 'width:10ch'}),
         }
 
 

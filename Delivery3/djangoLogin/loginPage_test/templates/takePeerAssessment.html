@@ -23,76 +23,59 @@
 
     <div>
         <h1>Peer Assessment</h1>
-        <h3>Please fill out the following peer assessment your team member</h3> 
+        <h3>Please fill out the following peer assessment your team member</h3>
+        {{ form.sid }}
     </div>
 
     <div>
         <div>
             <p>1. {{ object.question1Text }}</p>
             {{ form.answer1 }}
+            <br><br>
         </div>
         <div>
             <p>2. {{ object.question2Text }}</p>
             {{ form.answer2 }}
+            <br><br>
         </div>
         <div>
             <p>3. {{ object.question3Text }}</p>
             {{ form.answer3 }}
+            <br><br>
         </div>
         <div>
             <p>4. {{ object.question4Text }}</p>
-            <label><input type="radio" name="5" value="SA"> Strongly Agree</label>
-            <label><input type="radio" name="5" value="A"> Agree</label>
-            <label><input type="radio" name="5" value="N"> Neutral</label>
-            <label><input type="radio" name="5" value="D"> Disagree</label>
-            <label><input type="radio" name="5" value="SD"> Strongly Disagree</label><br>
+            {{ form.answer4 }}
+            <br><br>
         </div>
         <div>
             <p>5. {{ object.question5Text }}</p>
-            <label><input type="radio" name="6" value="SA"> Strongly Agree</label>
-            <label><input type="radio" name="6" value="A"> Agree</label>
-            <label><input type="radio" name="6" value="N"> Neutral</label>
-            <label><input type="radio" name="6" value="D"> Disagree</label>
-            <label><input type="radio" name="6" value="SD"> Strongly Disagree</label><br>
+            {{ form.answer5 }}
+            <br><br>
         </div>
         <div>
             <p>6. {{ object.question6Text }}</p>
-            <label><input type="radio" name="7" value="SA"> Strongly Agree</label>
-            <label><input type="radio" name="7" value="A"> Agree</label>
-            <label><input type="radio" name="7" value="N"> Neutral</label>
-            <label><input type="radio" name="7" value="D"> Disagree</label>
-            <label><input type="radio" name="7" value="SD"> Strongly Disagree</label><br>
+            {{ form.answer6 }}
+            <br><br>
         </div>
         <div>
             <p>7. {{ object.question7Text }}</p>
-            <label><input type="radio" name="8" value="SA"> Strongly Agree</label>
-            <label><input type="radio" name="8" value="A"> Agree</label>
-            <label><input type="radio" name="8" value="N"> Neutral</label>
-            <label><input type="radio" name="8" value="D"> Disagree</label>
-            <label><input type="radio" name="8" value="SD"> Strongly Disagree</label><br>
+            {{ form.answer7 }}
+            <br><br>
         <div>
             <p>8. {{ object.question8Text }}</p>
-            <label><input type="radio" name="8" value="SA"> Strongly Agree</label>
-            <label><input type="radio" name="8" value="A"> Agree</label>
-            <label><input type="radio" name="8" value="N"> Neutral</label>
-            <label><input type="radio" name="8" value="D"> Disagree</label>
-            <label><input type="radio" name="8" value="SD"> Strongly Disagree</label><br>
+            {{ form.answer8 }}
+            <br><br>
         </div>
         <div>
             <p>9. {{ object.question9Text }}</p>
-            <label><input type="radio" name="8" value="SA"> Strongly Agree</label>
-            <label><input type="radio" name="8" value="A"> Agree</label>
-            <label><input type="radio" name="8" value="N"> Neutral</label>
-            <label><input type="radio" name="8" value="D"> Disagree</label>
-            <label><input type="radio" name="8" value="SD"> Strongly Disagree</label><br>
+            {{ form.answer9 }}
+            <br><br>
         </div>
         <div>
             <p>10. {{ object.question10Text }}</p>
-            <label><input type="radio" name="8" value="SA"> Strongly Agree</label>
-            <label><input type="radio" name="8" value="A"> Agree</label>
-            <label><input type="radio" name="8" value="N"> Neutral</label>
-            <label><input type="radio" name="8" value="D"> Disagree</label>
-            <label><input type="radio" name="8" value="SD"> Strongly Disagree</label><br>
+            {{ form.answer10 }}
+            <br><br>
         </div>
 
     </div>

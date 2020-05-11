@@ -108,10 +108,10 @@
   
       <div>
           <h3>Take a Peer Assessment</h3> 
-          <select id="ranking-type" class="select-control">
+          <select id="paTakeChoice" name="paTakeChoice">
             {% for team in teams %}
               {% for livePA in team.livePAs.all %}
-              <option value="Average Evaluation"> {{ livePA }}</option>
+              <option value="{{ livePA }}"> {{ livePA }}</option>
               {% endfor %}
             {% endfor %}
           </select>

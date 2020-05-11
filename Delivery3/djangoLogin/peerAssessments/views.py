@@ -41,31 +41,6 @@ def createPeerAssessment(request):
 
     return render(request,"createPeerAssessment.html", {'form': form})
 
-# def enterQuestions(request):
-#     #if request.method == 'POST':
-#         #form = EnterQuestionsForm(request.POST)
-#         #if form.is_valid():
-#          #   for i
-#     #data= request.POST.get('name')
-#     #
-#     #    numString += '3'
-#     # obj = PeerAssessment.objects.get(pid=1)
-#     # context = {
-#     #     'object': obj,
-#     #     'loopc': '123456789'
-#     # }
-#     if request.method == 'POST':
-#         form = EnterQuestionsForm(request.POST or None)
-#         if form.is_valid():
-#             myQuestions = form.save()
-#             myQuestions.private_field = "2"
-#             myQuestions.save()
-#             return HttpResponseRedirect('/home/')
-#     else:
-#         form = EnterQuestionsForm()
-    
-#     return render(request,"enterQuestions.html", {'form': form})
-
 @login_required
 def studentTeacherLinking(request):
     isTeacher = request.user.is_teacher
@@ -118,3 +93,27 @@ def takePeerAssessment(request):
 #     }
 #     return render(request,"",context)
 
+# def enterQuestions(request):
+#     #if request.method == 'POST':
+#         #form = EnterQuestionsForm(request.POST)
+#         #if form.is_valid():
+#          #   for i
+#     #data= request.POST.get('name')
+#     #
+#     #    numString += '3'
+#     # obj = PeerAssessment.objects.get(pid=1)
+#     # context = {
+#     #     'object': obj,
+#     #     'loopc': '123456789'
+#     # }
+#     if request.method == 'POST':
+#         form = EnterQuestionsForm(request.POST or None)
+#         if form.is_valid():
+#             myQuestions = form.save()
+#             myQuestions.private_field = "2"
+#             myQuestions.save()
+#             return HttpResponseRedirect('/home/')
+#     else:
+#         form = EnterQuestionsForm()
+    
+#     return render(request,"enterQuestions.html", {'form': form})
