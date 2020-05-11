@@ -3,8 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.conf import settings
-
-
+from django.core.validators import MaxValueValidator
 
 SEMESTER_CHOICES =  (("Fall", "F"), ("Spring", "S"))
 QUESTION_TYPES = (("Multiple Choice", "MC"), ("TEXT", "T"))
@@ -94,20 +93,19 @@ class Instructor(models.Model):
         return self.fname + " " + self.lname
 
 
-
 class CompletedAssessments(models.Model):
     sid = models.ForeignKey('Student', on_delete=models.CASCADE)
     pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
     answer1 = models.TextField()
     answer2 = models.TextField()
-    answer3 = models.FloatField()
-    answer4 = models.FloatField()
-    answer5 = models.FloatField()
-    answer6 = models.FloatField()
-    answer7 = models.FloatField()
-    answer8 = models.FloatField()
-    answer9 = models.FloatField()
-    answer10 = models.FloatField()
+    answer3 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
+    answer4 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
+    answer5 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
+    answer6 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
+    answer7 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
+    answer8 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
+    answer9 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
+    answer10 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
 
     def __str__(self):
          title = self.sid

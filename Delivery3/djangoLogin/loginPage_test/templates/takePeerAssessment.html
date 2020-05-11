@@ -28,48 +28,19 @@
 
     <div>
         <div>
-            {% for question in object.questions.all %}
-                <p>{{question}}</p>
-                <textarea rows="4", columns="100"></textarea>
-            {% endfor %}
+            <p>1. {{ object.question1Text }}</p>
+            {{ form.answer1 }}
         </div>
         <div>
-           
+            <p>2. {{ object.question2Text }}</p>
+            {{ form.answer2 }}
         </div>
         <div>
-            <p>2. Did he/she assume the project as a team effort, providing support in project tasks?</p>
+            <p>3. {{ object.question3Text }}</p>
+            {{ form.answer3 }}
         </div>
         <div>
-            <label><input type="radio" name="2" value="SA"> Strongly Agree</label>
-            <label><input type="radio" name="2" value="A"> Agree</label>
-            <label><input type="radio" name="2" value="N"> Neutral</label>
-            <label><input type="radio" name="2" value="D"> Disagree</label>
-            <label><input type="radio" name="2" value="SD"> Strongly Disagree</label><br>
-        </div>
-        <div>
-            <p>3. Did he/she demonstrate initiative to achieve project success?</p>
-        </div>
-        <div>
-            <label><input type="radio" name="3" value="SA"> Strongly Agree</label>
-            <label><input type="radio" name="3" value="A"> Agree</label>
-            <label><input type="radio" name="3" value="N"> Neutral</label>
-            <label><input type="radio" name="3" value="D"> Disagree</label>
-            <label><input type="radio" name="3" value="SD"> Strongly Disagree</label><br>
-        </div>
-        <div>
-            <p>4. Did he/she fulfill his/her assignments properly, working transparently and in coordination with the rest of the team?</p>
-        </div>
-        <div>
-            <label><input type="radio" name="4" value="SA"> Strongly Agree</label>
-            <label><input type="radio" name="4" value="A"> Agree</label>
-            <label><input type="radio" name="4" value="N"> Neutral</label>
-            <label><input type="radio" name="4" value="D"> Disagree</label>
-            <label><input type="radio" name="4" value="SD"> Strongly Disagree</label><br>
-        </div>
-        <div>
-            <p>5. Did he/she maintain good communication with the client, generating value to project execution?</p>
-        </div>
-        <div>
+            <p>4. {{ object.question4Text }}</p>
             <label><input type="radio" name="5" value="SA"> Strongly Agree</label>
             <label><input type="radio" name="5" value="A"> Agree</label>
             <label><input type="radio" name="5" value="N"> Neutral</label>
@@ -77,9 +48,7 @@
             <label><input type="radio" name="5" value="SD"> Strongly Disagree</label><br>
         </div>
         <div>
-            <p>6. Was he/she able to seek help when there were problems?</p>
-        </div>
-        <div>
+            <p>5. {{ object.question5Text }}</p>
             <label><input type="radio" name="6" value="SA"> Strongly Agree</label>
             <label><input type="radio" name="6" value="A"> Agree</label>
             <label><input type="radio" name="6" value="N"> Neutral</label>
@@ -87,9 +56,7 @@
             <label><input type="radio" name="6" value="SD"> Strongly Disagree</label><br>
         </div>
         <div>
-            <p>7. Did he/she show a communicative attitude facilitating the teamwork?</p>
-        </div>
-        <div>
+            <p>6. {{ object.question6Text }}</p>
             <label><input type="radio" name="7" value="SA"> Strongly Agree</label>
             <label><input type="radio" name="7" value="A"> Agree</label>
             <label><input type="radio" name="7" value="N"> Neutral</label>
@@ -97,26 +64,37 @@
             <label><input type="radio" name="7" value="SD"> Strongly Disagree</label><br>
         </div>
         <div>
-            <p>8. Is he/she able to admit mistakes and accept criticism?</p>
-        </div>
-        <div>
+            <p>7. {{ object.question7Text }}</p>
             <label><input type="radio" name="8" value="SA"> Strongly Agree</label>
             <label><input type="radio" name="8" value="A"> Agree</label>
             <label><input type="radio" name="8" value="N"> Neutral</label>
             <label><input type="radio" name="8" value="D"> Disagree</label>
             <label><input type="radio" name="8" value="SD"> Strongly Disagree</label><br>
         <div>
-            <p>9. What are his/her strengths?</p>
+            <p>8. {{ object.question8Text }}</p>
+            <label><input type="radio" name="8" value="SA"> Strongly Agree</label>
+            <label><input type="radio" name="8" value="A"> Agree</label>
+            <label><input type="radio" name="8" value="N"> Neutral</label>
+            <label><input type="radio" name="8" value="D"> Disagree</label>
+            <label><input type="radio" name="8" value="SD"> Strongly Disagree</label><br>
         </div>
         <div>
-            <textarea rows="4", columns="100"></textarea>
+            <p>9. {{ object.question9Text }}</p>
+            <label><input type="radio" name="8" value="SA"> Strongly Agree</label>
+            <label><input type="radio" name="8" value="A"> Agree</label>
+            <label><input type="radio" name="8" value="N"> Neutral</label>
+            <label><input type="radio" name="8" value="D"> Disagree</label>
+            <label><input type="radio" name="8" value="SD"> Strongly Disagree</label><br>
         </div>
         <div>
-            <p>10. What are his/her weaknesses?</p>
+            <p>10. {{ object.question10Text }}</p>
+            <label><input type="radio" name="8" value="SA"> Strongly Agree</label>
+            <label><input type="radio" name="8" value="A"> Agree</label>
+            <label><input type="radio" name="8" value="N"> Neutral</label>
+            <label><input type="radio" name="8" value="D"> Disagree</label>
+            <label><input type="radio" name="8" value="SD"> Strongly Disagree</label><br>
         </div>
-        <div>
-            <textarea rows="4", columns="100"></textarea>
-        </div>
+
     </div>
     
 

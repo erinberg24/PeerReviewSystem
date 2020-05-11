@@ -19,8 +19,10 @@
   
   <body>
       <div class="flex-container">
-          <nav>
+          <nav style="text-align: right;">
             <a href="{% url 'logout' %}">logout</a>
+            <br>
+            <a href="{% url 'password_reset' %}">reset password</a>
           </nav>
           <br>
       </div>
@@ -30,7 +32,7 @@
       </div>
   
       <div>
-          <center><h3>Your Courses</h3></center>
+          <center><h4>Your Courses</h4></center>
             <center><div style="width:350px;height:125px;line-height:1em;overflow:auto;padding:5px;border:4px double;font-size:large;border-color: #9b4dca;">
             <ul style="list-style-type: none;">
               <li></li>
@@ -40,11 +42,20 @@
           </ul></center>
           <br><br>
       </div>
+
+      <center><div>
+        <br>
+        <h3>Create a New Peer Assessment.</h3> 
+        <div>
+            <button><a href="{% url 'createPeerAssessment' %}"><font color="white">Create Assessment</font></a></button> 
+        </div>
+      </div></center>
+      <br><br>
   
-      <div>
+      <center><div>
           <h3>Choose a previous peer assessment to view its results.</h3> 
           <div>
-              <select id="assessmentViewer" class="select-control">
+              <select id="assessmentViewer" class="select-control" style="width: 500px;">
                 {% for assess in pas %}
                 <option value="class">{{ assess }}</option>
                 {% endfor %}
@@ -53,22 +64,14 @@
           </div>
         </div>
   
-      <button><a id = "pageSwitcher" href="{% url 'instructorResults' %}"><font color="white">Submit</font></a></button> 
+      <button><a id = "pageSwitcher" href="{% url 'instructorResults' %}"><font color="white">Submit</font></a></button></center> 
 
-      <div>
-        <h3>Create a New Peer Assessment.</h3> 
-        <div>
-            <button><a href="{% url 'createPeerAssessment' %}"><font color="white">Create Assessment</font></a></button> 
-        </div>
-      </div>
 
 
   
       <!--<script type="module" src="js/instructorLP.js"></script>-->
     
   </body>
-  
-  <p><a href="{% url 'password_reset' %}">reset password</a></p>
 
 
 {% else %}

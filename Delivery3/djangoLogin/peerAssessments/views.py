@@ -8,7 +8,9 @@ from .models import Student
 from .models import Course
 from .models import Team
 from .models import PeerAssessment
+from .models import CompletedAssessments
 from .forms import PeerAssessmentForm
+from .forms import StudentResponseForm
 
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -91,7 +93,7 @@ def studentTeacherLinking(request):
 
 def takePeerAssessment(request):
     if request.method == 'POST':
-        form = StudentResponse(request.POST)
+        form = StudentResponseForm(request.POST)
         if form.is_valid():
             form.save()
         context = {
@@ -100,7 +102,7 @@ def takePeerAssessment(request):
         return HttpResponseRedirect('home')
     else:     
         obj = PeerAssessment.objects.get(pid=1)
-        form = StudentResponse()
+        form = StudentResponseForm()
         context = {
             'object': obj,
             'form': form

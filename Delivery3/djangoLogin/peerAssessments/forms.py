@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from django import forms
 
 from .models import PeerAssessment
+from .models import CompletedAssessments
 
 class PeerAssessmentForm(forms.ModelForm):
     class Meta:
@@ -35,8 +36,30 @@ class PeerAssessmentForm(forms.ModelForm):
         ]
         widgets = {
         'startDate': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
-        'endDate': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+        'endDate': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'})
     }
+
+class StudentResponseForm(forms.ModelForm):
+    class Meta:
+        model = CompletedAssessments
+        fields = [
+            'sid',
+            'pid',
+            'answer1',
+            'answer2',
+            'answer3',
+            'answer4',
+            'answer5',
+            'answer6',
+            'answer7',
+            'answer8',
+            'answer9',
+            'answer10'
+        ]
+        widgets = {
+            'answer3': forms.NumberInput(attrs={'style': 'width:10ch'})
+        }
+
 
     # name = forms.CharField()
     # cid = forms.IntegerField()
