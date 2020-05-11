@@ -70,6 +70,8 @@ def studentTeacherLinking(request):
 def takePeerAssessment(request):
     current_user = request.user.email
     current = Student.objects.get(email=current_user)
+    pidToUse = request.POST.get("p_id")
+    print(pidToUse)
     obj2 = PeerAssessment.objects.get(pid=2)
     if request.method == 'POST':
         form = StudentResponseForm(request.POST)
@@ -83,7 +85,7 @@ def takePeerAssessment(request):
         context = {
             'form': form
         }
-        return HttpResponseRedirect('home')
+        return HttpResponseRedirect('/home/')
     else: 
         if request.GET.get("paTakeChoice"):
             obj = PeerAssessment.objects.get(name=request.GET.get("paTakeChoice"))
@@ -113,7 +115,7 @@ def makeTeams(request):
         context = {
             'form': form
         }
-        return HttpResponseRedirect('home')
+        return HttpResponseRedirect('/home/')
     else:     
         obj = Course.objects.filter(iid=current_user.iid)
         form = createTeamsForm()

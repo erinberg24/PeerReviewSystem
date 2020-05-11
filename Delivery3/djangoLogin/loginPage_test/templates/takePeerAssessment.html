@@ -21,6 +21,9 @@
         <br>
     </div>
 
+
+    
+
     <div>
         <h1>Peer Assessment</h1>
         <h3>Please fill out the following peer assessment your team member</h3>
@@ -81,8 +84,13 @@
 
     </div>
     
+    <form hidden action = "{% url 'takePeerAssessment' %}" method="POST">
+        <select hidden id="p_id" name="p_id">
+            <option hidden value="{{object.pid}}"> {{object.pid}}</option>
+        </select>
+        <button><a href="{% url 'home' %}"><font color="white"><input type = "hidden" value = "Submit">Submit</font></a></button> 
+        </form>
 
-    <button><a href="{% url 'home' %}"><font color="white">Submit</font></a></button> 
     <button><a href="{% url 'home' %}"><font color="white">Cancel</font></a></button>
   
 </body>
