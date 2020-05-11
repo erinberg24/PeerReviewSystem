@@ -92,12 +92,14 @@
   </head>
   
   <body>
-      <div class="flex-container">
-          <nav>
-            <a href="{% url 'logout' %}">logout</a>
-          </nav>
-          <br>
-      </div>
+    <div class="flex-container">
+      <nav style="text-align: right;">
+        <a href="{% url 'logout' %}">logout</a>
+        <br>
+        <a href="{% url 'password_reset' %}">reset password</a>
+      </nav>
+      <br>
+    </div>
   
       <div>
           <center><h1>Welcome to Your Student Page, {{ object.fname }} {{ object.lname }}</h1></center><br>
@@ -136,6 +138,7 @@
           <h3>View Your Results</h3> 
           <div>
               <select id="ranking-type" class="select-control" style='width:75ch'>
+                <option value="Academic"></option>
                   <option value="Academic">Software Engineering - Delivery 6</option>
               </select>
               <button><a href="{% url 'studentResults' %}"><font color="white">Submit</font></a></button>
