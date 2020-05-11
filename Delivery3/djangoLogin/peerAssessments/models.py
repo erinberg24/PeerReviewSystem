@@ -98,14 +98,14 @@ class CompletedAssessments(models.Model):
     pid = models.ForeignKey('PeerAssessment', on_delete=models.CASCADE)
     answer1 = models.TextField()
     answer2 = models.TextField()
-    answer3 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
-    answer4 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
-    answer5 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
-    answer6 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
-    answer7 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
-    answer8 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
-    answer9 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
-    answer10 = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(5)])
+    answer3 = models.PositiveIntegerField(validators=[MaxValueValidator(5)])
+    answer4 = models.PositiveIntegerField(validators=[MaxValueValidator(5)])
+    answer5 = models.PositiveIntegerField(validators=[MaxValueValidator(5)])
+    answer6 = models.PositiveIntegerField(validators=[MaxValueValidator(5)])
+    answer7 = models.PositiveIntegerField(validators=[MaxValueValidator(5)])
+    answer8 = models.PositiveIntegerField(validators=[MaxValueValidator(5)])
+    answer9 = models.PositiveIntegerField(validators=[MaxValueValidator(5)])
+    answer10 = models.PositiveIntegerField(validators=[MaxValueValidator(5)])
 
     def __str__(self):
          title = self.sid

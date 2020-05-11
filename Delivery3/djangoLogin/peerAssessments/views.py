@@ -45,7 +45,7 @@ def createPeerAssessment(request):
 def studentTeacherLinking(request):
     isTeacher = request.user.is_teacher
     current_user = request.user.email
-    print current_user
+    print(current_user)
 
     if (isTeacher == True):
         obj = Instructor.objects.get(email=current_user)
