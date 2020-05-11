@@ -42,6 +42,18 @@ class PeerAssessment(models.Model):
         title = str(self.name)
         return title
 
+class Course(models.Model):
+    cid = models.AutoField(primary_key=True)
+    courseName = models.CharField(max_length = 30)
+    code = models.CharField(max_length=20)
+    section = models.IntegerField()
+    year = models.IntegerField()
+    semester = models.CharField(max_length= 8, choices=SEMESTER_CHOICES, default="FALL")
+    iid = models.ForeignKey('Instructor', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.courseName
+
 class Student(models.Model):
     sid = models.AutoField(primary_key=True)
     fname = models.CharField(max_length = 15)
@@ -49,7 +61,7 @@ class Student(models.Model):
     email = models.CharField(max_length = 20, unique=True)
     eagleid = models.IntegerField(unique=True)
     password = models.CharField(max_length = 20)
-    #courses = models.ManyToManyField(Course)
+    courses = models.ManyToManyField(Course)
     completedAssessments = models.ManyToManyField(PeerAssessment)
 
     def __str__(self):
@@ -65,19 +77,6 @@ class Team(models.Model):
     def __str__(self):
         title = str(self.name)
         return title
-
-class Course(models.Model):
-    cid = models.AutoField(primary_key=True)
-    courseName = models.CharField(max_length = 30)
-    code = models.CharField(max_length=20)
-    section = models.IntegerField()
-    year = models.IntegerField()
-    semester = models.CharField(max_length= 8, choices=SEMESTER_CHOICES, default="FALL")
-    iid = models.ForeignKey('Instructor', on_delete=models.CASCADE)
-    teams = models.ManyToManyField(Team)
-
-    def __str__(self):
-        return self.courseName
 
 class Instructor(models.Model):
     #user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,null=True, blank=True) 

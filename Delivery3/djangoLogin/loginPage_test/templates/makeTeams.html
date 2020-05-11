@@ -1,0 +1,55 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<head>
+  <meta charset="utf-8">
+  <title>Make Teams</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/fontawesome.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/milligram.min.css' %}">
+</head>
+
+<body>
+    <div class="flex-container">
+        <nav>
+            <a href="{% url 'home' %}">Go Back </a>
+        </nav>
+        <br>
+    </div>
+
+    <div>
+        <h1>Create Teams</h1>
+        <h3>Please create teams for your class.</h3>
+    </div>
+    <form action="{% url 'makeTeams' %}" method="POST">{% csrf_token %}
+
+    <div>
+        <div>
+            <p>Which of your courses do you want to create a new team for?</p>
+            {{ form.theCourse }}
+            <br><br>
+        </div>
+        <div>
+            <p>What is the team name?</p>
+            {{ form.name }}
+            <br><br>
+        </div>
+        <div>
+            <p>Which students would you like to add to the team?</p>
+            {{ form.students }}
+            <br><br>
+        </div>
+ 
+    </div>
+    
+
+    <button><a href="{% url 'home' %}"><font color="white">Submit</font></a></button> 
+    <button><a href="{% url 'home' %}"><font color="white">Cancel</font></a></button>
+  
+</body>
+
+{% endblock %}

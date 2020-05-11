@@ -3,6 +3,9 @@ from django import forms
 
 from .models import PeerAssessment
 from .models import CompletedAssessments
+from .models import Team
+from .models import Course
+from .models import Student
 
 class PeerAssessmentForm(forms.ModelForm):
     class Meta:
@@ -66,6 +69,19 @@ class StudentResponseForm(forms.ModelForm):
             'answer9': forms.NumberInput(attrs={'style': 'width:10ch'}),
             'answer10': forms.NumberInput(attrs={'style': 'width:10ch'}),
         }
+
+class createTeamsForm(forms.ModelForm):
+    class Meta:
+        model = Team
+        fields = [
+            'tid',
+            'name',
+            'theCourse',
+            'students'
+        ]
+    def __init__(self, *args, **kwargs):
+        super(createTeamsForm, self).__init__(*args, **kwargs)
+        self.fields['students'].queryset = Student.objects.filter(courses=2)
 
 
     # name = forms.CharField()

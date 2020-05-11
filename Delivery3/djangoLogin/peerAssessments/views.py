@@ -11,6 +11,7 @@ from .models import PeerAssessment
 from .models import CompletedAssessments
 from .forms import PeerAssessmentForm
 from .forms import StudentResponseForm
+from .forms import createTeamsForm
 
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -86,6 +87,32 @@ def takePeerAssessment(request):
         }
 
     return render(request,"takePeerAssessment.html", context)
+
+def makeTeams(request):
+    current_user = request.user.email
+    current_user = Instructor.objects.get(email=current_user)
+    if request.method == 'POST':
+        form = createTeamsForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.tid=5
+            instance.livePAs = [1, 2]
+            instance.save()
+        else:
+            print(form.errors)
+
+        context = {
+            'form': form
+        }
+        return HttpResponseRedirect('home')
+    else:     
+        obj = Course.objects.filter(iid=current_user.iid)
+        form = createTeamsForm()
+        context = {
+            'object': obj,
+            'form': form
+        }
+    return render(request,"makeTeams.html", context)
 
 
 # this needs to be updated
